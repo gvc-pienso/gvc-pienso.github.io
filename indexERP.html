@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="SwaggerUI" />
+  <title>SwaggerUI</title>
+  <link rel="stylesheet" href="https://unpkg.com/swagger-ui-dist@5.26.2/swagger-ui.css" />
+  <script src="https://unpkg.com/rapipdf/dist/rapipdf-min.js"></script>
+</head>
+<body>
+<div id="swagger-ui"></div>
+<script src="https://unpkg.com/swagger-ui-dist@5.26.2/swagger-ui-bundle.js" crossorigin></script>
+<script>
+  window.onload = () => {
+    window.ui = SwaggerUIBundle({
+      url: '/erp.yaml',
+      dom_id: '#swagger-ui',
+    });
+  };
+</script>
+      <rapi-pdf style="width:700px; height:40px; font-size:18px;" spec-url="/erp.yaml" >
+    </rapi-pdf>
+</body>
+</html>
