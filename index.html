@@ -1,14 +1,81 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="SwaggerUI" />
-  <title>SwaggerUI</title>
-  <link rel="stylesheet" href="https://unpkg.com/swagger-ui-dist@5.19.0/swagger-ui.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Servicios de Integración ERP ↔ Fábrica</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f6f8;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #002a5c;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    main {
+      padding: 40px 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+    h1 {
+      font-size: 1.8em;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 1.1em;
+      margin-bottom: 30px;
+    }
+    .link-box {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .link-box a {
+      display: block;
+      background-color: #004b94;
+      color: white;
+      text-decoration: none;
+      padding: 15px 20px;
+      border-radius: 8px;
+      font-size: 1.1em;
+      transition: background-color 0.3s ease;
+    }
+    .link-box a:hover {
+      background-color: #0062c3;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+      color: #777;
+    }
+  </style>
 </head>
 <body>
-  <a href="/indexERP.html">¡ERP!</a>
-  <a href="/indexFAB.html">¡FAB!</a>
+  <header>
+    <h1>Documentación de Servicios - Vall Companys</h1>
+  </header>
+  <main>
+    <p>
+      Accede a la documentación Swagger de los servicios para la integración entre los sistemas de fábrica y los ERP.
+    </p>
+    <div class="link-box">
+      <a href="/indexERP.html" target="_blank">
+        Servicios de sistemas de fábrica hacia ERP
+      </a>
+      <a href="/indexFAB.html" target="_blank">
+        Servicios de ERP hacia sistemas de fábrica
+      </a>
+    </div>
+  </main>
+  <footer>
+    Proyecto interno - Grupo Vall Companys
+  </footer>
 </body>
 </html>
