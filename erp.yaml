@@ -1,0 +1,606 @@
+openapi: 3.0.1
+info:
+  title: API Servicios ERP para sistemas de fábrica
+  description: Detalle de los servicios proporcinados por el software del ERP que son llamadas desde sistemas externos como sistemas de fábrica
+   para guardar información en el ERP. Tambien ser ofrecen servicios de consulta para poder consultar desde sistemas externos información de fábrica
+   almacenada en el ERP.
+  version: 1.0.0
+servers:
+  - url: https://server.erp.com
+tags:
+  - name: Recepciones
+    description: Servicios de recepciones de materia prima
+  - name: Expediciones
+    description: Servicios de expediciones de pienso
+  - name: Regularizaciones
+    description: Servicios de Regularizaciones
+  - name: Producciones
+    description: Servicios de Producciones
+paths:
+  /recepciones:
+    post:
+      tags:
+        - Recepciones
+      summary: Crear o registrar recepciones de materia prima
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Recepciones"
+      responses:
+        '200':
+          description: Recepción procesada correctamente
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: 
+                      - Se ha guardado correctamente.
+                  code:
+                    type: string
+                    description: >
+                      Resultado de servicio:
+                      <br> `OK` - Resultado correcto
+                      <br> `NOK` - Resultado incorrecto
+        '500':
+          description: Error al procesar la recepción
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: 
+                      - Se debe rellenar el campo producto.
+                  code:
+                    type: string
+                    example: 
+                      - NOK    
+  /expediciones:
+    post:
+      tags:
+        - Expediciones
+      summary: Obtener en el erp expediciones de pienso realizardas desde fábrica
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Expediciones'
+      responses:
+        '200':
+          description: Expediciones recibidas correctamente
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: 
+                      - Expediciones procesadas correctamente
+        '400':
+          description: Solicitud incorrecta
+        '500':
+          description: Error interno del servidor
+  /regularizaciones:
+    post:
+      tags:
+        - Regularizaciones
+      summary: guardar en el erp regularizaciones de pienso o materia prima realizardas desde fábrica
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Regularizaciones'
+      responses:
+        '200':
+          description: regularizaciones recibidas correctamente
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: 
+                      - Regularizaciones procesadas correctamente
+        '400':
+          description: Solicitud incorrecta
+        '500':
+          description: Error interno del servidor
+  /producciones:
+    post:
+      tags:
+        - Producciones
+      summary: guardar en el erp producciones (con sus consumos) de pienso realizadas desde fábrica
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Producciones'
+      responses:
+        '200':
+          description: Producciones recibidas correctamente
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: 
+                      - Producciones procesadas correctamente
+        '400':
+          description: Solicitud incorrecta
+        '500':
+          description: Error interno del servidor
+components:
+  schemas:
+    Recepciones:
+      type: object
+      required:
+        - mensajeId
+        - fechaCreacion
+        - origen
+        - recepciones
+      properties:
+        mensajeId:
+          type: string
+          format: uuid
+          description: Identificador del mensaje
+        fechaCreacion:
+          type: string
+          format: date-time
+          description: Fecha de creación en formato ISO 8601 con franja horaria
+          example: 
+            - 2025-07-09T10:15+02:00
+        origen:
+          type: string
+          description: Identificador del sistema origen
+          example: 
+            - D365
+        recepciones:
+          type: array
+          items:
+            type: object
+            required:
+              - idViaje
+              - codigoExterno
+              - estado
+              - matriculaRemolque
+              - fechaEntrada
+              - lineas
+            properties:
+              idViaje:
+                type: string
+                description: Número de identificación interna del viaje
+              codigoExterno:
+                type: string
+                description: Identificador de la recepción (referencia transportista)
+              estado:
+                type: string
+                description: >
+                 Estado de la recepcion:
+                  <br> `R` - Recepción rechazada
+                  <br> `C` - Recepción realizada
+              matriculaVehiculo:
+                type: string
+              matriculaRemolque:
+                type: string
+              operadorTransporte:
+                type: string
+                description: codigo del operador que ha hecho la recepción
+              agenciaTransporte:
+                type: string
+                description: Codigo de la agencia intermediaria del transporte.
+              conductor:
+                type: string
+                description: Identificador en el ERP del conductor.
+              nifConductor:
+                type: string
+                description: nif del conductor
+              nombreConductor:
+                type: string
+                description: Nombre del conductor
+              fechaEntrada:
+                type: string
+                format: date-time
+                description: Fecha de entrada de la recepción a fábrica en formato ISO 8601 con franja horaria
+                example: 
+                  - 2025-07-09T10:15+02:00
+              pesoEntrada:
+                type: number
+                format: double
+                description: Peso de entrada del camión en fábrica
+              fechaSalida:
+                type: string
+                format: date-time
+                description: Fecha de salida del camión de fábrica en formato ISO 8601 con franja horaria
+                example: 
+                  - 2025-07-09T10:15+02:00
+              pesoSalida:
+                type: number
+                format: double
+                description: Peso de salida del camión en fábrica
+              codigoRechazo:
+                type: string
+                description: en caso de estado R (Rechazado), especifica el motivo
+              lineas:
+                type: array
+                items:
+                  type: object
+                  required:
+                    - id
+                    - producto
+                    - cantidadTeorica
+                    - cantidadReal
+                  properties:
+                    id:
+                      type: string
+                      description: Identificador de la linea.
+                    producto:
+                      type: string
+                      description: Identificador del artículo a recepcionar.
+                    presentacion:
+                      type: string
+                    cantidadTeorica:
+                      type: number
+                      format: double
+                      description: Cantidad teorica en la recepción
+                    cantidadReal:
+                      type: number
+                      format: double
+                      description: Cantidad real de la recepción
+                    unidad:
+                      description: Unidad de la cantidad teorica o real
+                      type: string  
+                    proveedor:
+                      type: string
+                      description: Código del proveedor.
+                    aplicacion:
+                      type: string
+                      description: Código del acuerdo de compra de fábrica.
+                    loteProveedor:
+                      type: string
+                      description: Identificador del lote del proveedor.
+                    loteFabrica:
+                      type: string
+                      description: Identificador del lote de fábrica para la línea.
+                    fechaCaducidadLote:
+                      type: string
+                      format: date-time
+                      description: Fecha caducidad lote.
+                      example: 
+                        - 2025-07-09T10:15+02:00
+                    codigoMuestra:
+                      type: string
+                      description: Código de muestra
+                    referenciaProveedor:
+                      type: string
+                      description: referencia del proveedor
+                    calidad:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          codigoCalidad:
+                            type: integer
+                            description: identificador del codigo de calidad
+                          valor:
+                            type: number
+                            format: double
+                            description: Valor de calidad
+    Expediciones:
+      type: object
+      required:
+        - mensajeId
+        - fechaCreacion
+        - origen
+        - expediciones
+      properties:
+        mensajeId:
+          type: string
+          format: uuid
+          description: Identificador del mensaje
+        fechaCreacion:
+          type: string
+          format: date-time
+          description: Fecha de creación en formato ISO 8601 con franja horaria
+          example: 
+            - 2025-07-09T10:15+02:00
+        origen:
+          type: string
+          description: Identificador del origen
+          example: 
+            - D365
+        expediciones:
+          type: array
+          items:
+            type: object
+            required:
+              - idViaje
+              - codigoExterno
+              - fechaRealizacion
+              - matriculaRemolque
+              - estado
+              - lineas
+            properties:
+              idViaje:
+                type: string
+                description: Identificador del sistema de fábrica de la expedición
+              codigoExterno:
+                type: string
+                description: identificador de la expedición en el ERP
+              fechaPrevista:
+                type: string
+                format: date-time
+                description: fecha prevista en formato ISO 8601 con franja horaria
+                example: 
+                  - 2025-07-09T10:15+02:00
+              fechaRealizacion:
+                type: string
+                format: date-time
+                description: Fecha de realización de la expedición
+                example: 
+                  - 2025-07-09T10:15+02:00
+              matriculaRemolque:
+                type: string
+                description: matrícula del remolque
+              matriculaVehiculo:
+                type: string
+                description: matrícula del vehículo
+              transportista:
+                type: string
+                description: Codigo transportista en el erp
+              pesoEntrada:
+                type: number
+                format: double
+                description: Peso entrada del vehículo
+              fechaPesoEntrada:
+                type: string
+                format: date-time
+                description: fecha cuando se hace la pesada de entrada en formato ISO 8601 con franja horaria
+                example: 
+                  - 2025-07-09T10:15+02:00
+              estado:
+                type: string
+                description: >
+                    El estado de la expedición:
+                    <br> `E` - Expedición en edición
+                    <br> `P` - Expedición pendiente de expedir
+                    <br> `T` - Expedición en tránsito (Pendiente de la confirmación del camionero de la entrega)
+                    <br> `C` - Expedición cerrada
+                    <br> `R` - Expedición rechazar
+              lineas:
+                type: array
+                items:
+                  type: object
+                  required:
+                    - producto
+                    - cantidades
+                  properties:
+                    producto:
+                      type: string
+                      description: Identificador del artículo de pienso expedido
+                    presentacion:
+                      type: string
+                    cliente:
+                      type: string
+                      description: Código del cliente a expedir el pienso
+                    explotacion:
+                      type: string
+                      description: Identificador de la explotación
+                    pedido:
+                      type: string
+                      description: Identificador del pedido del erp
+                    pedidoLinea:
+                      type: string
+                      description: Identificador del pedido del erp (línea)
+                    fechaEntrega:
+                      type: string
+                      format: date-time
+                      description: fecha de entrega en formato ISO 8601 con franja horaria
+                      example: 
+                        - 2025-07-09T10:15+02:00
+                    fechaRealizacion:
+                      type: string
+                      format: date-time
+                      description: fecha de realización en formato ISO 8601 con franja horaria
+                      example: 
+                        - 2025-07-09T10:15+02:00
+                    cantidades:
+                      type: array
+                      items:
+                        type: object
+                        required:
+                          - id
+                          - cantidad
+                          - unidad
+                        properties:
+                          id:
+                            type: integer
+                            description: Identificador interno del sistema de fábrica del lote.
+                          codigoLote:
+                            type: string
+                            description: Identificador del lote fabricación
+                          cantidad:
+                            type: number
+                            format: double
+                            description: Cantidad del lote
+                          unidad:
+                            type: number
+                            format: double
+                            description: Unidad de la cantidad
+    Regularizaciones:
+      type: object
+      required:
+        - mensajeId
+        - fechaCreacion
+        - origen
+        - regularizaciones
+      properties:
+        mensajeId:
+          type: string
+          format: uuid
+        fechaCreacion:
+          type: string
+          format: date-time
+          description: Fecha de creación en formato ISO 8601 con franja horaria
+          example: 
+            - 2025-07-09T10:15+02:00
+        origen:
+          type: string
+          example: 
+            - D365
+        regularizaciones:
+          type: array
+          items:
+            type: object
+            required:
+              - id
+              - producto
+              - cantidad
+              - unidad
+            properties:
+              id:
+                type: integer
+                description: identificador interno en el sistema de fábrica
+              producto:
+                type: string
+                description: Identificador del producto
+              presentacion:
+                type: string
+                description: presentación del producto
+              cantidad:
+                type: number
+                format: double
+                description: Cantidad 
+              unidad:
+                type: string
+                description: Unida de la cantidad
+              fecha:
+                type: string
+                format: date-time
+                description: Fecha en formato ISO 8601 con franja horaria
+                example: 
+                  - 2025-07-09T10:15+02:00
+              loteFabrica:
+                type: string
+                description: Lote que asigna el sistema de fábrica en la recepcion de materia prima o produccion de pienso
+    Producciones:
+      type: object
+      required:
+        - mensajeId
+        - fechaCreacion
+        - origen
+        - fabricaciones
+      properties:
+        mensajeId:
+          type: string
+          format: uuid
+        fechaCreacion:
+          type: string
+          format: date-time
+          description: Fecha de creación en formato ISO 8601 con franja horaria
+          example: 
+            - 2025-07-09T10:15+02:00
+        origen:
+          type: string
+          example: 
+            - D365
+        fabricaciones:
+          type: array
+          items:
+            type: object
+            required:
+              - fechaProduccion
+              - identificadorProduccion
+            properties:
+              fechaProduccion:
+                type: string
+                format: date-time
+                description: Fecha de producción en formato ISO 8601 con franja horaria
+                example: 
+                  - 2025-07-09T10:15+02:00
+              identificadorProduccion:
+                type: string
+                description: Identificador interno del sistema de fábrica de la producción. Sirve para vincular consumos y produccciones
+              movimientos:
+                type: object
+                properties:
+                  consumidos:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                        - codigoProducto
+                        - identificadorProduccion
+                        - cantidad
+                        - unidad
+                      properties:
+                        codigoProducto:
+                          type: string
+                          description: Codigo del producto (consumido)
+                        presentacion:
+                          type: string
+                          description: Presentación del artículo
+                        cantidad:
+                          type: number
+                          format: double
+                          description: Cantidad consumida
+                        unidad:
+                          type: string
+                          description: Unidad del artículo
+                        loteRecepcion:
+                          type: string
+                          description: Lote del proveedor de materia prima
+                        loteFabrica:
+                          description: Lote que asigna el sistema de fábrica en la recepcion de materia prima
+                          type: string
+                  producidos:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                        - codigoProducto
+                        - identificadorProduccion
+                        - cantidad
+                        - unidad
+                      properties:
+                        codigoProducto:
+                          type: string
+                          description: Codigo del producto (producido)
+                        presentacion:
+                          type: string
+                          description: Presentación del artículo
+                        cantidad:
+                          type: number
+                          format: double
+                          description: Cantidad producida
+                        unidad:
+                          type: string
+                          description: Unidad del artículo
+                        loteFabricacion:
+                          type: string
+                          description: Lote que asigna el sistema de fábrica en la fabricación de pienso
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://login.microsoftonline.com/vallcompanys.es/oauth2/token
+          scopes:
+            "lectura": Permiso de escritura
+            "escritura": Permiso de lectura
+security:
+  - oauth2:
+      - lectura
+      - escritura       
