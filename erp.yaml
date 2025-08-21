@@ -436,9 +436,8 @@ components:
                             format: double
                             description: Cantidad del lote
                           unidad:
-                            type: number
-                            format: double
-                            description: Unidad de la cantidad
+                            description: Unidad de la cantidad 
+                            type: string  
     Regularizaciones:
       type: object
       required:
@@ -458,6 +457,7 @@ components:
             - 2025-07-09T10:15+02:00
         origen:
           type: string
+          description: Origen de la llamada
           example: 
             - D365
         regularizaciones:
@@ -494,7 +494,7 @@ components:
                   - 2025-07-09T10:15+02:00
               loteFabrica:
                 type: string
-                description: Lote que asigna el sistema de fábrica en la recepcion de materia prima o produccion de pienso
+                description: Lote que asigna el sistema de fábrica en la recepción de materia prima o producción de pienso
     Producciones:
       type: object
       required:
@@ -514,6 +514,7 @@ components:
             - 2025-07-09T10:15+02:00
         origen:
           type: string
+          description: Origen de la llamada
           example: 
             - D365
         fabricaciones:
