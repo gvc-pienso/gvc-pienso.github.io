@@ -2080,6 +2080,8 @@ components:
                 type: string
               codigoREGA:
                 type: string
+                description: Identificador REGA de la explotación de la granja
+                example: ES123123123123
               nif:
                 type: string
               nombre:
