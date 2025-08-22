@@ -1,33 +1,37 @@
 openapi: 3.0.1
 info:
   title: API Servicios ERP para sistemas de fábrica
-  description:  Detalle de los servicios proporcinados por el software del ERP que son llamadas desde sistemas externos como sistemas de fábrica
-   para guardar información en el ERP. Tambien ser ofrecen servicios de consulta para poder consultar desde sistemas externos información de fábrica
-   almacenada en el ERP.
+  description: Detalle de los servicios proporcinados por el software del ERP que
+    son llamadas desde sistemas externos como sistemas de fábrica para guardar información
+    en el ERP. Tambien ser ofrecen servicios de consulta para poder consultar desde
+    sistemas externos información de fábrica almacenada en el ERP.
   version: 1.0.0
+  x-generated-examples-note: Ejemplos autogenerados para contexto ERP de fábricas
+    de pienso (producción, logística y calidad). Revísalos y ajústalos según negocio.
 servers:
-  - url: https://server.erp.com
+- url: https://server.erp.com
 tags:
-  - name: Recepciones
-    description: Servicios de recepciones de materia prima
-  - name: Expediciones
-    description: Servicios de expediciones de pienso
-  - name: Regularizaciones
-    description: Servicios de Regularizaciones
-  - name: Producciones
-    description: Servicios de Producciones
+- name: Recepciones
+  description: Servicios de recepciones de materia prima
+- name: Expediciones
+  description: Servicios de expediciones de pienso
+- name: Regularizaciones
+  description: Servicios de Regularizaciones
+- name: Producciones
+  description: Servicios de Producciones
 paths:
   /recepciones:
     post:
       tags:
-        - Recepciones
+      - Recepciones
       summary: Crear o registrar recepciones de materia prima
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/Recepciones"
+              $ref: '#/components/schemas/Recepciones'
+              example: Ejemplo
       responses:
         '200':
           description: Recepción procesada correctamente
@@ -38,14 +42,18 @@ paths:
                 properties:
                   message:
                     type: string
-                    example: 
-                      - Se ha guardado correctamente.
+                    example: &id001
+                    - Se ha guardado correctamente.
                   code:
                     type: string
-                    description: >
-                      Resultado de servicio:
-                      <br> `OK` - Resultado correcto
+                    description: 'Resultado de servicio: <br> `OK` - Resultado correcto
                       <br> `NOK` - Resultado incorrecto
+
+                      '
+                    example: COD-PIENSO-001
+                example:
+                  message: *id001
+                  code: COD-PIENSO-001
         '500':
           description: Error al procesar la recepción
           content:
@@ -55,16 +63,19 @@ paths:
                 properties:
                   message:
                     type: string
-                    example: 
-                      - Se debe rellenar el campo producto.
+                    example: &id002
+                    - Se debe rellenar el campo producto.
                   code:
                     type: string
-                    example: 
-                      - NOK    
+                    example: &id003
+                    - NOK
+                example:
+                  message: *id002
+                  code: *id003
   /expediciones:
     post:
       tags:
-        - Expediciones
+      - Expediciones
       summary: Obtener en el erp expediciones de pienso realizardas desde fábrica
       requestBody:
         required: true
@@ -72,6 +83,7 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Expediciones'
+              example: Ejemplo
       responses:
         '200':
           description: Expediciones recibidas correctamente
@@ -82,8 +94,10 @@ paths:
                 properties:
                   message:
                     type: string
-                    example: 
-                      - Expediciones procesadas correctamente
+                    example: &id004
+                    - Expediciones procesadas correctamente
+                example:
+                  message: *id004
         '400':
           description: Solicitud incorrecta
         '500':
@@ -91,14 +105,16 @@ paths:
   /regularizaciones:
     post:
       tags:
-        - Regularizaciones
-      summary: guardar en el erp regularizaciones de pienso o materia prima realizardas desde fábrica
+      - Regularizaciones
+      summary: guardar en el erp regularizaciones de pienso o materia prima realizardas
+        desde fábrica
       requestBody:
         required: true
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Regularizaciones'
+              example: Ejemplo
       responses:
         '200':
           description: regularizaciones recibidas correctamente
@@ -109,8 +125,10 @@ paths:
                 properties:
                   message:
                     type: string
-                    example: 
-                      - Regularizaciones procesadas correctamente
+                    example: &id005
+                    - Regularizaciones procesadas correctamente
+                example:
+                  message: *id005
         '400':
           description: Solicitud incorrecta
         '500':
@@ -118,14 +136,16 @@ paths:
   /producciones:
     post:
       tags:
-        - Producciones
-      summary: guardar en el erp producciones (con sus consumos) de pienso realizadas desde fábrica
+      - Producciones
+      summary: guardar en el erp producciones (con sus consumos) de pienso realizadas
+        desde fábrica
       requestBody:
         required: true
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Producciones'
+              example: Ejemplo
       responses:
         '200':
           description: Producciones recibidas correctamente
@@ -136,8 +156,10 @@ paths:
                 properties:
                   message:
                     type: string
-                    example: 
-                      - Producciones procesadas correctamente
+                    example: &id006
+                    - Producciones procesadas correctamente
+                example:
+                  message: *id006
         '400':
           description: Solicitud incorrecta
         '500':
@@ -147,145 +169,171 @@ components:
     Recepciones:
       type: object
       required:
-        - mensajeId
-        - fechaCreacion
-        - origen
-        - recepciones
+      - mensajeId
+      - fechaCreacion
+      - origen
+      - recepciones
       properties:
         mensajeId:
           type: string
           format: uuid
           description: Identificador del mensaje
+          example: ab1d93e5-09b0-4008-b55f-9de1f0c5f4f7
         fechaCreacion:
           type: string
           format: date-time
           description: Fecha de creación en formato ISO 8601 con franja horaria
-          example: 
-            - 2025-07-09T10:15+02:00
+          example: &id010
+          - 2025-07-09T10:15+02:00
         origen:
           type: string
           description: Identificador del sistema origen
-          example: 
-            - D365
+          example: &id011
+          - D365
         recepciones:
           type: array
           items:
             type: object
             required:
-              - idViaje
-              - codigoExterno
-              - estado
-              - matriculaRemolque
-              - fechaEntrada
-              - lineas
+            - idViaje
+            - codigoExterno
+            - estado
+            - matriculaRemolque
+            - fechaEntrada
+            - lineas
             properties:
               idViaje:
                 type: string
                 description: Número de identificación interna del viaje
+                example: Ejemplo
               codigoExterno:
                 type: string
                 description: Identificador de la recepción (referencia transportista)
+                example: Ejemplo
               estado:
                 type: string
-                description: >
-                 Estado de la recepcion:
-                  <br> `R` - Recepción rechazada
-                  <br> `C` - Recepción realizada
+                description: "Estado de la recepcion:\n <br> `R` - Recepción rechazada\n\
+                  \ <br> `C` - Recepción realizada\n"
+                example: EN_PROCESO
               matriculaVehiculo:
                 type: string
+                example: Ejemplo
               matriculaRemolque:
                 type: string
+                example: Ejemplo
               operadorTransporte:
                 type: string
                 description: codigo del operador que ha hecho la recepción
+                example: Ejemplo
               agenciaTransporte:
                 type: string
                 description: Codigo de la agencia intermediaria del transporte.
+                example: Ejemplo
               conductor:
                 type: string
                 description: Identificador en el ERP del conductor.
+                example: Ejemplo
               nifConductor:
                 type: string
                 description: nif del conductor
+                example: Ejemplo
               nombreConductor:
                 type: string
                 description: Nombre del conductor
+                example: Ejemplo
               fechaEntrada:
                 type: string
                 format: date-time
-                description: Fecha de entrada de la recepción a fábrica en formato ISO 8601 con franja horaria
-                example: 
-                  - 2025-07-09T10:15+02:00
+                description: Fecha de entrada de la recepción a fábrica en formato
+                  ISO 8601 con franja horaria
+                example: &id008
+                - 2025-07-09T10:15+02:00
               pesoEntrada:
                 type: number
                 format: double
                 description: Peso de entrada del camión en fábrica
+                example: 1.0
               fechaSalida:
                 type: string
                 format: date-time
-                description: Fecha de salida del camión de fábrica en formato ISO 8601 con franja horaria
-                example: 
-                  - 2025-07-09T10:15+02:00
+                description: Fecha de salida del camión de fábrica en formato ISO
+                  8601 con franja horaria
+                example: &id009
+                - 2025-07-09T10:15+02:00
               pesoSalida:
                 type: number
                 format: double
                 description: Peso de salida del camión en fábrica
+                example: 1.0
               codigoRechazo:
                 type: string
                 description: en caso de estado R (Rechazado), especifica el motivo
+                example: Ejemplo
               lineas:
                 type: array
                 items:
                   type: object
                   required:
-                    - id
-                    - producto
-                    - cantidadTeorica
-                    - cantidadReal
+                  - id
+                  - producto
+                  - cantidadTeorica
+                  - cantidadReal
                   properties:
                     id:
                       type: string
                       description: Identificador de la linea.
+                      example: Lote-2025-000123
                     producto:
                       type: string
                       description: Identificador del artículo a recepcionar.
+                      example: Ejemplo
                     presentacion:
                       type: string
+                      example: Ejemplo
                     cantidadTeorica:
                       type: number
                       format: double
                       description: Cantidad teorica en la recepción
+                      example: 1.0
                     cantidadReal:
                       type: number
                       format: double
                       description: Cantidad real de la recepción
+                      example: 1.0
                     unidad:
                       description: Unidad de la cantidad teorica o real
-                      type: string  
+                      type: string
+                      example: kg
                     proveedor:
                       type: string
                       description: Código del proveedor.
+                      example: GRANJA SAN ISIDRO
                     aplicacion:
                       type: string
                       description: Código del acuerdo de compra de fábrica.
+                      example: Ejemplo
                     loteProveedor:
                       type: string
                       description: Identificador del lote del proveedor.
+                      example: Ejemplo
                     loteFabrica:
                       type: string
                       description: Identificador del lote de fábrica para la línea.
+                      example: Ejemplo
                     fechaCaducidadLote:
                       type: string
                       format: date-time
                       description: Fecha caducidad lote.
-                      example: 
-                        - 2025-07-09T10:15+02:00
+                      example: &id007
+                      - 2025-07-09T10:15+02:00
                     codigoMuestra:
                       type: string
                       description: Código de muestra
+                      example: Ejemplo
                     referenciaProveedor:
                       type: string
                       description: referencia del proveedor
+                      example: Ejemplo
                     calidad:
                       type: array
                       items:
@@ -294,246 +342,568 @@ components:
                           codigoCalidad:
                             type: integer
                             description: identificador del codigo de calidad
+                            example: 1
                           valor:
                             type: number
                             format: double
                             description: Valor de calidad
+                            example: 1.0
+                        example:
+                          codigoCalidad: 1
+                          valor: 1.0
+                      example:
+                      - codigoCalidad: 1
+                        valor: 1.0
+                  example:
+                    id: Lote-2025-000123
+                    producto: Ejemplo
+                    presentacion: Ejemplo
+                    cantidadTeorica: 1.0
+                    cantidadReal: 1.0
+                    unidad: kg
+                    proveedor: GRANJA SAN ISIDRO
+                    aplicacion: Ejemplo
+                    loteProveedor: Ejemplo
+                    loteFabrica: Ejemplo
+                    fechaCaducidadLote: *id007
+                    codigoMuestra: Ejemplo
+                    referenciaProveedor: Ejemplo
+                    calidad:
+                    - codigoCalidad: 1
+                      valor: 1.0
+                example:
+                - id: Lote-2025-000123
+                  producto: Ejemplo
+                  presentacion: Ejemplo
+                  cantidadTeorica: 1.0
+                  cantidadReal: 1.0
+                  unidad: kg
+                  proveedor: GRANJA SAN ISIDRO
+                  aplicacion: Ejemplo
+                  loteProveedor: Ejemplo
+                  loteFabrica: Ejemplo
+                  fechaCaducidadLote: *id007
+                  codigoMuestra: Ejemplo
+                  referenciaProveedor: Ejemplo
+                  calidad:
+                  - codigoCalidad: 1
+                    valor: 1.0
+            example:
+              idViaje: Ejemplo
+              codigoExterno: Ejemplo
+              estado: EN_PROCESO
+              matriculaVehiculo: Ejemplo
+              matriculaRemolque: Ejemplo
+              operadorTransporte: Ejemplo
+              agenciaTransporte: Ejemplo
+              conductor: Ejemplo
+              nifConductor: Ejemplo
+              nombreConductor: Ejemplo
+              fechaEntrada: *id008
+              pesoEntrada: 1.0
+              fechaSalida: *id009
+              pesoSalida: 1.0
+              codigoRechazo: Ejemplo
+              lineas:
+              - id: Lote-2025-000123
+                producto: Ejemplo
+                presentacion: Ejemplo
+                cantidadTeorica: 1.0
+                cantidadReal: 1.0
+                unidad: kg
+                proveedor: GRANJA SAN ISIDRO
+                aplicacion: Ejemplo
+                loteProveedor: Ejemplo
+                loteFabrica: Ejemplo
+                fechaCaducidadLote: *id007
+                codigoMuestra: Ejemplo
+                referenciaProveedor: Ejemplo
+                calidad:
+                - codigoCalidad: 1
+                  valor: 1.0
+          example:
+          - idViaje: Ejemplo
+            codigoExterno: Ejemplo
+            estado: EN_PROCESO
+            matriculaVehiculo: Ejemplo
+            matriculaRemolque: Ejemplo
+            operadorTransporte: Ejemplo
+            agenciaTransporte: Ejemplo
+            conductor: Ejemplo
+            nifConductor: Ejemplo
+            nombreConductor: Ejemplo
+            fechaEntrada: *id008
+            pesoEntrada: 1.0
+            fechaSalida: *id009
+            pesoSalida: 1.0
+            codigoRechazo: Ejemplo
+            lineas:
+            - id: Lote-2025-000123
+              producto: Ejemplo
+              presentacion: Ejemplo
+              cantidadTeorica: 1.0
+              cantidadReal: 1.0
+              unidad: kg
+              proveedor: GRANJA SAN ISIDRO
+              aplicacion: Ejemplo
+              loteProveedor: Ejemplo
+              loteFabrica: Ejemplo
+              fechaCaducidadLote: *id007
+              codigoMuestra: Ejemplo
+              referenciaProveedor: Ejemplo
+              calidad:
+              - codigoCalidad: 1
+                valor: 1.0
+      example:
+        mensajeId: 1bac1a23-c91f-49ff-9729-4cf6183c9d86
+        fechaCreacion: *id010
+        origen: *id011
+        recepciones:
+        - idViaje: Ejemplo
+          codigoExterno: Ejemplo
+          estado: EN_PROCESO
+          matriculaVehiculo: Ejemplo
+          matriculaRemolque: Ejemplo
+          operadorTransporte: Ejemplo
+          agenciaTransporte: Ejemplo
+          conductor: Ejemplo
+          nifConductor: Ejemplo
+          nombreConductor: Ejemplo
+          fechaEntrada: *id008
+          pesoEntrada: 1.0
+          fechaSalida: *id009
+          pesoSalida: 1.0
+          codigoRechazo: Ejemplo
+          lineas:
+          - id: Lote-2025-000123
+            producto: Ejemplo
+            presentacion: Ejemplo
+            cantidadTeorica: 1.0
+            cantidadReal: 1.0
+            unidad: kg
+            proveedor: GRANJA SAN ISIDRO
+            aplicacion: Ejemplo
+            loteProveedor: Ejemplo
+            loteFabrica: Ejemplo
+            fechaCaducidadLote: *id007
+            codigoMuestra: Ejemplo
+            referenciaProveedor: Ejemplo
+            calidad:
+            - codigoCalidad: 1
+              valor: 1.0
     Expediciones:
       type: object
       required:
-        - mensajeId
-        - fechaCreacion
-        - origen
-        - expediciones
+      - mensajeId
+      - fechaCreacion
+      - origen
+      - expediciones
       properties:
         mensajeId:
           type: string
           format: uuid
           description: Identificador del mensaje
+          example: 08439318-c2f0-4b25-b974-1dbc1984bc9c
         fechaCreacion:
           type: string
           format: date-time
           description: Fecha de creación en formato ISO 8601 con franja horaria
-          example: 
-            - 2025-07-09T10:15+02:00
+          example: &id017
+          - 2025-07-09T10:15+02:00
         origen:
           type: string
           description: Identificador del origen
-          example: 
-            - D365
+          example: &id018
+          - D365
         expediciones:
           type: array
           items:
             type: object
             required:
-              - idViaje
-              - codigoExterno
-              - fechaRealizacion
-              - matriculaRemolque
-              - estado
-              - lineas
+            - idViaje
+            - codigoExterno
+            - fechaRealizacion
+            - matriculaRemolque
+            - estado
+            - lineas
             properties:
               idViaje:
                 type: string
                 description: Identificador del sistema de fábrica de la expedición
+                example: Ejemplo
               codigoExterno:
                 type: string
                 description: identificador de la expedición en el ERP
+                example: Ejemplo
               fechaPrevista:
                 type: string
                 format: date-time
                 description: fecha prevista en formato ISO 8601 con franja horaria
-                example: 
-                  - 2025-07-09T10:15+02:00
+                example: &id014
+                - 2025-07-09T10:15+02:00
               fechaRealizacion:
                 type: string
                 format: date-time
                 description: Fecha de realización de la expedición
-                example: 
-                  - 2025-07-09T10:15+02:00
+                example: &id015
+                - 2025-07-09T10:15+02:00
               matriculaRemolque:
                 type: string
                 description: matrícula del remolque
+                example: Ejemplo
               matriculaVehiculo:
                 type: string
                 description: matrícula del vehículo
+                example: Ejemplo
               transportista:
                 type: string
                 description: Codigo transportista en el erp
+                example: Ejemplo
               pesoEntrada:
                 type: number
                 format: double
                 description: Peso entrada del vehículo
+                example: 1.0
               fechaPesoEntrada:
                 type: string
                 format: date-time
-                description: fecha cuando se hace la pesada de entrada en formato ISO 8601 con franja horaria
-                example: 
-                  - 2025-07-09T10:15+02:00
+                description: fecha cuando se hace la pesada de entrada en formato
+                  ISO 8601 con franja horaria
+                example: &id016
+                - 2025-07-09T10:15+02:00
               estado:
                 type: string
-                description: >
-                    El estado de la expedición:
-                    <br> `E` - Expedición en edición
-                    <br> `P` - Expedición pendiente de expedir
-                    <br> `T` - Expedición en tránsito (Pendiente de la confirmación del camionero de la entrega)
-                    <br> `C` - Expedición cerrada
-                    <br> `R` - Expedición rechazar
+                description: 'El estado de la expedición: <br> `E` - Expedición en
+                  edición <br> `P` - Expedición pendiente de expedir <br> `T` - Expedición
+                  en tránsito (Pendiente de la confirmación del camionero de la entrega)
+                  <br> `C` - Expedición cerrada <br> `R` - Expedición rechazar
+
+                  '
+                example: EN_PROCESO
               lineas:
                 type: array
                 items:
                   type: object
                   required:
-                    - producto
-                    - cantidades
+                  - producto
+                  - cantidades
                   properties:
                     producto:
                       type: string
                       description: Identificador del artículo de pienso expedido
+                      example: Ejemplo
                     presentacion:
                       type: string
+                      example: Ejemplo
                     cliente:
                       type: string
                       description: Código del cliente a expedir el pienso
+                      example: GRANJA SAN ISIDRO
                     explotacion:
                       type: string
                       description: Identificador de la explotación
+                      example: Ejemplo
                     pedido:
                       type: string
                       description: Identificador del pedido del erp
+                      example: PED-2025-000987
                     pedidoLinea:
                       type: string
                       description: Identificador del pedido del erp (línea)
+                      example: Ejemplo
                     fechaEntrega:
                       type: string
                       format: date-time
-                      description: fecha de entrega en formato ISO 8601 con franja horaria
-                      example: 
-                        - 2025-07-09T10:15+02:00
+                      description: fecha de entrega en formato ISO 8601 con franja
+                        horaria
+                      example: &id012
+                      - 2025-07-09T10:15+02:00
                     fechaRealizacion:
                       type: string
                       format: date-time
-                      description: fecha de realización en formato ISO 8601 con franja horaria
-                      example: 
-                        - 2025-07-09T10:15+02:00
+                      description: fecha de realización en formato ISO 8601 con franja
+                        horaria
+                      example: &id013
+                      - 2025-07-09T10:15+02:00
                     cantidades:
                       type: array
                       items:
                         type: object
                         required:
-                          - id
-                          - cantidad
-                          - unidad
+                        - id
+                        - cantidad
+                        - unidad
                         properties:
                           id:
                             type: integer
-                            description: Identificador interno del sistema de fábrica del lote.
+                            description: Identificador interno del sistema de fábrica
+                              del lote.
+                            example: 12345
                           codigoLote:
                             type: string
                             description: Identificador del lote fabricación
+                            example: Ejemplo
                           cantidad:
                             type: number
                             format: double
                             description: Cantidad del lote
+                            example: 25000
                           unidad:
-                            description: Unidad de la cantidad 
-                            type: string  
+                            description: Unidad de la cantidad
+                            type: string
+                            example: kg
+                        example:
+                          id: 12345
+                          codigoLote: Ejemplo
+                          cantidad: 25000
+                          unidad: kg
+                      example:
+                      - id: 12345
+                        codigoLote: Ejemplo
+                        cantidad: 25000
+                        unidad: kg
+                  example:
+                    producto: Ejemplo
+                    presentacion: Ejemplo
+                    cliente: GRANJA SAN ISIDRO
+                    explotacion: Ejemplo
+                    pedido: PED-2025-000987
+                    pedidoLinea: Ejemplo
+                    fechaEntrega: *id012
+                    fechaRealizacion: *id013
+                    cantidades:
+                    - id: 12345
+                      codigoLote: Ejemplo
+                      cantidad: 25000
+                      unidad: kg
+                example:
+                - producto: Ejemplo
+                  presentacion: Ejemplo
+                  cliente: GRANJA SAN ISIDRO
+                  explotacion: Ejemplo
+                  pedido: PED-2025-000987
+                  pedidoLinea: Ejemplo
+                  fechaEntrega: *id012
+                  fechaRealizacion: *id013
+                  cantidades:
+                  - id: 12345
+                    codigoLote: Ejemplo
+                    cantidad: 25000
+                    unidad: kg
+            example:
+              idViaje: Ejemplo
+              codigoExterno: Ejemplo
+              fechaPrevista: *id014
+              fechaRealizacion: *id015
+              matriculaRemolque: Ejemplo
+              matriculaVehiculo: Ejemplo
+              transportista: Ejemplo
+              pesoEntrada: 1.0
+              fechaPesoEntrada: *id016
+              estado: EN_PROCESO
+              lineas:
+              - producto: Ejemplo
+                presentacion: Ejemplo
+                cliente: GRANJA SAN ISIDRO
+                explotacion: Ejemplo
+                pedido: PED-2025-000987
+                pedidoLinea: Ejemplo
+                fechaEntrega: *id012
+                fechaRealizacion: *id013
+                cantidades:
+                - id: 12345
+                  codigoLote: Ejemplo
+                  cantidad: 25000
+                  unidad: kg
+          example:
+          - idViaje: Ejemplo
+            codigoExterno: Ejemplo
+            fechaPrevista: *id014
+            fechaRealizacion: *id015
+            matriculaRemolque: Ejemplo
+            matriculaVehiculo: Ejemplo
+            transportista: Ejemplo
+            pesoEntrada: 1.0
+            fechaPesoEntrada: *id016
+            estado: EN_PROCESO
+            lineas:
+            - producto: Ejemplo
+              presentacion: Ejemplo
+              cliente: GRANJA SAN ISIDRO
+              explotacion: Ejemplo
+              pedido: PED-2025-000987
+              pedidoLinea: Ejemplo
+              fechaEntrega: *id012
+              fechaRealizacion: *id013
+              cantidades:
+              - id: 12345
+                codigoLote: Ejemplo
+                cantidad: 25000
+                unidad: kg
+      example:
+        mensajeId: 087173fb-4eea-4f51-a8e6-4f131fc37e78
+        fechaCreacion: *id017
+        origen: *id018
+        expediciones:
+        - idViaje: Ejemplo
+          codigoExterno: Ejemplo
+          fechaPrevista: *id014
+          fechaRealizacion: *id015
+          matriculaRemolque: Ejemplo
+          matriculaVehiculo: Ejemplo
+          transportista: Ejemplo
+          pesoEntrada: 1.0
+          fechaPesoEntrada: *id016
+          estado: EN_PROCESO
+          lineas:
+          - producto: Ejemplo
+            presentacion: Ejemplo
+            cliente: GRANJA SAN ISIDRO
+            explotacion: Ejemplo
+            pedido: PED-2025-000987
+            pedidoLinea: Ejemplo
+            fechaEntrega: *id012
+            fechaRealizacion: *id013
+            cantidades:
+            - id: 12345
+              codigoLote: Ejemplo
+              cantidad: 25000
+              unidad: kg
     Regularizaciones:
       type: object
       required:
-        - mensajeId
-        - fechaCreacion
-        - origen
-        - regularizaciones
+      - mensajeId
+      - fechaCreacion
+      - origen
+      - regularizaciones
       properties:
         mensajeId:
           type: string
           format: uuid
+          example: d4b0256b-ddac-4ee7-b2b3-d9ddaa6adf96
         fechaCreacion:
           type: string
           format: date-time
           description: Fecha de creación en formato ISO 8601 con franja horaria
-          example: 
-            - 2025-07-09T10:15+02:00
+          example: &id020
+          - 2025-07-09T10:15+02:00
         origen:
           type: string
           description: Origen de la llamada
-          example: 
-            - D365
+          example: &id021
+          - D365
         regularizaciones:
           type: array
           items:
             type: object
             required:
-              - id
-              - producto
-              - cantidad
-              - unidad
+            - id
+            - producto
+            - cantidad
+            - unidad
             properties:
               id:
                 type: integer
                 description: identificador interno en el sistema de fábrica
+                example: 12345
               producto:
                 type: string
                 description: Identificador del producto
+                example: Ejemplo
               presentacion:
                 type: string
                 description: presentación del producto
+                example: Ejemplo
               cantidad:
                 type: number
                 format: double
-                description: Cantidad 
+                description: Cantidad
+                example: 25000
               unidad:
                 type: string
                 description: Unida de la cantidad
+                example: kg
               fecha:
                 type: string
                 format: date-time
                 description: Fecha en formato ISO 8601 con franja horaria
-                example: 
-                  - 2025-07-09T10:15+02:00
+                example: &id019
+                - 2025-07-09T10:15+02:00
               loteFabrica:
                 type: string
-                description: Lote que asigna el sistema de fábrica en la recepción de materia prima o producción de pienso
+                description: Lote que asigna el sistema de fábrica en la recepción
+                  de materia prima o producción de pienso
+                example: Ejemplo
+            example:
+              id: 12345
+              producto: Ejemplo
+              presentacion: Ejemplo
+              cantidad: 25000
+              unidad: kg
+              fecha: *id019
+              loteFabrica: Ejemplo
+          example:
+          - id: 12345
+            producto: Ejemplo
+            presentacion: Ejemplo
+            cantidad: 25000
+            unidad: kg
+            fecha: *id019
+            loteFabrica: Ejemplo
+      example:
+        mensajeId: c69740f0-a522-4605-9f81-1a15af7e09e7
+        fechaCreacion: *id020
+        origen: *id021
+        regularizaciones:
+        - id: 12345
+          producto: Ejemplo
+          presentacion: Ejemplo
+          cantidad: 25000
+          unidad: kg
+          fecha: *id019
+          loteFabrica: Ejemplo
     Producciones:
       type: object
       required:
-        - mensajeId
-        - fechaCreacion
-        - origen
-        - fabricaciones
+      - mensajeId
+      - fechaCreacion
+      - origen
+      - fabricaciones
       properties:
         mensajeId:
           type: string
           format: uuid
+          example: 28289300-9219-41a0-8aed-8f3be0d0705f
         fechaCreacion:
           type: string
           format: date-time
           description: Fecha de creación en formato ISO 8601 con franja horaria
-          example: 
-            - 2025-07-09T10:15+02:00
+          example: &id023
+          - 2025-07-09T10:15+02:00
         origen:
           type: string
           description: Origen de la llamada
-          example: 
-            - D365
+          example: &id024
+          - D365
         fabricaciones:
           type: array
           items:
             type: object
             required:
-              - fechaProduccion
-              - identificadorProduccion
+            - fechaProduccion
+            - identificadorProduccion
             properties:
               fechaProduccion:
                 type: string
                 format: date-time
                 description: Fecha de producción en formato ISO 8601 con franja horaria
-                example: 
-                  - 2025-07-09T10:15+02:00
+                example: &id022
+                - 2025-07-09T10:15+02:00
               identificadorProduccion:
                 type: string
-                description: Identificador interno del sistema de fábrica de la producción. Sirve para vincular consumos y produccciones
+                description: Identificador interno del sistema de fábrica de la producción.
+                  Sirve para vincular consumos y produccciones
+                example: Ejemplo
               movimientos:
                 type: object
                 properties:
@@ -542,56 +912,131 @@ components:
                     items:
                       type: object
                       required:
-                        - codigoProducto
-                        - identificadorProduccion
-                        - cantidad
-                        - unidad
+                      - codigoProducto
+                      - identificadorProduccion
+                      - cantidad
+                      - unidad
                       properties:
                         codigoProducto:
                           type: string
                           description: Codigo del producto (consumido)
+                          example: Ejemplo
                         presentacion:
                           type: string
                           description: Presentación del artículo
+                          example: Ejemplo
                         cantidad:
                           type: number
                           format: double
                           description: Cantidad consumida
+                          example: 25000
                         unidad:
                           type: string
                           description: Unidad del artículo
+                          example: kg
                         loteRecepcion:
                           type: string
                           description: Lote del proveedor de materia prima
+                          example: Ejemplo
                         loteFabrica:
-                          description: Lote que asigna el sistema de fábrica en la recepcion de materia prima
+                          description: Lote que asigna el sistema de fábrica en la
+                            recepcion de materia prima
                           type: string
+                          example: Ejemplo
+                      example:
+                        codigoProducto: Ejemplo
+                        presentacion: Ejemplo
+                        cantidad: 25000
+                        unidad: kg
+                        loteRecepcion: Ejemplo
+                        loteFabrica: Ejemplo
+                        identificadorProduccion: Ejemplo
+                    example:
+                    - codigoProducto: Ejemplo
+                      presentacion: Ejemplo
+                      cantidad: 25000
+                      unidad: kg
+                      loteRecepcion: Ejemplo
+                      loteFabrica: Ejemplo
+                      identificadorProduccion: Ejemplo
                   producidos:
                     type: array
                     items:
                       type: object
                       required:
-                        - codigoProducto
-                        - identificadorProduccion
-                        - cantidad
-                        - unidad
+                      - codigoProducto
+                      - identificadorProduccion
+                      - cantidad
+                      - unidad
                       properties:
                         codigoProducto:
                           type: string
                           description: Codigo del producto (producido)
+                          example: Ejemplo
                         presentacion:
                           type: string
                           description: Presentación del artículo
+                          example: Ejemplo
                         cantidad:
                           type: number
                           format: double
                           description: Cantidad producida
+                          example: 25000
                         unidad:
                           type: string
                           description: Unidad del artículo
+                          example: kg
                         loteFabricacion:
                           type: string
-                          description: Lote que asigna el sistema de fábrica en la fabricación de pienso
+                          description: Lote que asigna el sistema de fábrica en la
+                            fabricación de pienso
+                          example: Ejemplo
+                      example:
+                        codigoProducto: Ejemplo
+                        presentacion: Ejemplo
+                        cantidad: 25000
+                        unidad: kg
+                        loteFabricacion: Ejemplo
+                        identificadorProduccion: Ejemplo
+                    example:
+                    - codigoProducto: Ejemplo
+                      presentacion: Ejemplo
+                      cantidad: 25000
+                      unidad: kg
+                      loteFabricacion: Ejemplo
+                      identificadorProduccion: Ejemplo
+                example:
+                  consumidos:
+                  - codigoProducto: Ejemplo
+                    presentacion: Ejemplo
+                    cantidad: 25000
+                    unidad: kg
+                    loteRecepcion: Ejemplo
+                    loteFabrica: Ejemplo
+                    identificadorProduccion: Ejemplo
+                  producidos:
+                  - codigoProducto: Ejemplo
+                    presentacion: Ejemplo
+                    cantidad: 25000
+                    unidad: kg
+                    loteFabricacion: Ejemplo
+                    identificadorProduccion: Ejemplo
+            example:
+              fechaProduccion: *id022
+              identificadorProduccion: Ejemplo
+              movimientos: Ejemplo
+          example:
+          - fechaProduccion: *id022
+            identificadorProduccion: Ejemplo
+            movimientos: Ejemplo
+      example:
+        mensajeId: fa65b8cb-d959-418d-bc75-39ab1d39f1ec
+        fechaCreacion: *id023
+        origen: *id024
+        fabricaciones:
+        - fechaProduccion: *id022
+          identificadorProduccion: Ejemplo
+          movimientos: Ejemplo
   securitySchemes:
     oauth2:
       type: oauth2
@@ -599,9 +1044,9 @@ components:
         clientCredentials:
           tokenUrl: https://login.microsoftonline.com/vallcompanys.es/oauth2/token
           scopes:
-            "lectura": Permiso de escritura
-            "escritura": Permiso de lectura
+            lectura: Permiso de escritura
+            escritura: Permiso de lectura
 security:
-  - oauth2:
-      - lectura
-      - escritura       
+- oauth2:
+  - lectura
+  - escritura
