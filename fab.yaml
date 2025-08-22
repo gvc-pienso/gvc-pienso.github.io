@@ -2078,6 +2078,8 @@ components:
                   <br> `B` - Baja
               codigoExterno:
                 type: string
+              codigoREGA:
+                type: string
               nif:
                 type: string
               nombre:
