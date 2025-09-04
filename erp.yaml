@@ -28,6 +28,61 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/Recepciones"
+            example:
+              mensajeId: "550e8400-e29b-41d4-a716-446655440000"
+              fechaCreacion: "2025-07-09T10:15+02:00"
+              origen: "VC Lleida"
+              recepciones:
+                - idViaje: "VIAJE-001"
+                  codigoExterno: "EXT-001"
+                  estado: "C"
+                  matriculaVehiculo: "1234-ABC"
+                  matriculaRemolque: "5678-DEF"
+                  operadorTransporte: "OP-TRANS-01"
+                  agenciaTransporte: "AG-TRANS-01"
+                  conductor: "COND-001"
+                  nifConductor: "12345678A"
+                  nombreConductor: "Juan Pérez"
+                  fechaEntrada: "2025-07-09T08:30+02:00"
+                  pesoEntrada: 28000.0
+                  fechaSalida: "2025-07-09T10:00+02:00"
+                  pesoSalida: 15000.0
+                  codigoRechazo: null
+                  lineas:
+                    - id: "L-001"
+                      producto: "MAT-001"
+                      presentacion: "Harina de maíz"
+                      cantidadTeorica: 10000.0
+                      cantidadReal: 9950.5
+                      unidad: "kg"
+                      proveedor: "PRV-001"
+                      aplicacion: "AC-2025-001"
+                      loteProveedor: "LP-0001"
+                      loteFabrica: "LF-1001"
+                      fechaCaducidadLote: "2026-01-09T00:00+02:00"
+                      codigoMuestra: "MUE-1001"
+                      referenciaProveedor: "REF-PRV-001"
+                      calidad:
+                        - codigoCalidad: 101
+                          valor: 12.5
+                        - codigoCalidad: 205
+                          valor: 8.0
+                    - id: "L-002"
+                      producto: "MAT-002"
+                      presentacion: "Soja"
+                      cantidadTeorica: 8000.0
+                      cantidadReal: 8000.0
+                      unidad: "kg"
+                      proveedor: "PRV-002"
+                      aplicacion: "AC-2025-002"
+                      loteProveedor: "LP-0002"
+                      loteFabrica: "LF-1002"
+                      fechaCaducidadLote: "2026-02-01T00:00+02:00"
+                      codigoMuestra: "MUE-1002"
+                      referenciaProveedor: "REF-PRV-002"
+                      calidad:
+                        - codigoCalidad: 101
+                          valor: 11.9
       responses:
         '200':
           description: Recepción procesada correctamente
@@ -211,13 +266,11 @@ components:
           type: string
           format: date-time
           description: Fecha de creación en formato ISO 8601 con franja horaria
-          example: 
-            - 2025-07-09T10:15+02:00
+          example: "2025-07-09T10:15+02:00"
         origen:
           type: string
           description: Identificador del origen - Identificador de la fábrica en el ERP
-          example: 
-            - VC Lleida
+          example: "VC Lleida"
         recepciones:
           type: array
           items:
@@ -265,8 +318,7 @@ components:
                 type: string
                 format: date-time
                 description: Fecha de entrada de la recepción a fábrica en formato ISO 8601 con franja horaria
-                example: 
-                  - 2025-07-09T10:15+02:00
+                example: "2025-07-09T10:15+02:00"
               pesoEntrada:
                 type: number
                 format: double
@@ -275,8 +327,7 @@ components:
                 type: string
                 format: date-time
                 description: Fecha de salida del camión de fábrica en formato ISO 8601 con franja horaria
-                example: 
-                  - 2025-07-09T10:15+02:00
+                example: "2025-07-09T10:15+02:00"
               pesoSalida:
                 type: number
                 format: double
@@ -329,8 +380,7 @@ components:
                       type: string
                       format: date-time
                       description: Fecha caducidad lote.
-                      example: 
-                        - 2025-07-09T10:15+02:00
+                      example: "2025-07-09T10:15+02:00"
                     codigoMuestra:
                       type: string
                       description: Código de muestra
