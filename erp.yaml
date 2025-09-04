@@ -1,8 +1,8 @@
 openapi: 3.0.1
 info:
   title: API Servicios ERP para sistemas de fábrica
-  description: Detalle de los servicios proporcinados por el software del ERP que son llamadas desde sistemas externos como sistemas de fábrica
-   para guardar información en el ERP. Tambien ser ofrecen servicios de consulta para poder consultar desde sistemas externos información de fábrica
+  description: Detalle de los servicios proporcionados por el software del ERP que son llamadas desde sistemas externos como sistemas de fábrica
+   para guardar información en el ERP. También se ofrecen servicios de consulta para poder consultar desde sistemas externos información de fábrica
    almacenada en el ERP.
   version: 1.0.0
 servers:
@@ -514,7 +514,7 @@ components:
             - 2025-07-09T10:15+02:00
         origen:
           type: string
-          description: Origen de la llamada - Identificador de la fábrica
+          description: Origen de la llamada - Identificador de la fábrica en el ERP
           example: 
             - VC Lleida
         fabricaciones:
@@ -549,7 +549,7 @@ components:
                       properties:
                         codigoProducto:
                           type: string
-                          description: Codigo del producto (consumido)
+                          description: Codigo del producto (consumido)                           
                         presentacion:
                           type: string
                           description: Presentación del artículo
