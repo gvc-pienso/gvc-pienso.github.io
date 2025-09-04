@@ -127,6 +127,39 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Expediciones'
+            example:
+              mensajeId: "8aa1e2b4-2a4b-4d29-9d56-112233445566"
+              fechaCreacion: "2025-07-09T10:15+02:00"
+              origen: "VC Lleida"
+              expediciones:
+                - idViaje: "EXP-001"
+                  codigoExterno: "ERP-EXP-001"
+                  fechaPrevista: "2025-07-10T06:00+02:00"
+                  fechaRealizacion: "2025-07-10T06:30+02:00"
+                  matriculaRemolque: "9999-ZZZ"
+                  matriculaVehiculo: "8888-YYY"
+                  transportista: "TRANS-001"
+                  pesoEntrada: 12000.0
+                  fechaPesoEntrada: "2025-07-10T06:10+02:00"
+                  estado: "C"
+                  lineas:
+                    - producto: "PROD-001"
+                      presentacion: "Pienso acabado 25kg"
+                      cliente: "CLI-001"
+                      explotacion: "EXPLO-001"
+                      pedido: "PED-2025-0001"
+                      pedidoLinea: "1"
+                      fechaEntrega: "2025-07-10T12:00+02:00"
+                      fechaRealizacion: "2025-07-10T06:30+02:00"
+                      cantidades:
+                        - id: 101
+                          codigoLote: "L-PROD-0001"
+                          cantidad: 2500.0
+                          unidad: "kg"
+                        - id: 102
+                          codigoLote: "L-PROD-0002"
+                          cantidad: 500.0
+                          unidad: "kg"
       responses:
         '200':
           description: Expediciones recibidas correctamente
@@ -154,6 +187,25 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Regularizaciones'
+            example:
+              mensajeId: "123e4567-e89b-12d3-a456-426614174000"
+              fechaCreacion: "2025-07-09T10:15+02:00"
+              origen: "VC Lleida"
+              regularizaciones:
+                - id: 1
+                  producto: "MAT-001"
+                  presentacion: "Harina de maíz"
+                  cantidad: 100.5
+                  unidad: "kg"
+                  fecha: "2025-07-09T09:00+02:00"
+                  loteFabrica: "LF-001"
+                - id: 2
+                  producto: "PROD-001"
+                  presentacion: "Pienso acabado"
+                  cantidad: -50.0
+                  unidad: "kg"
+                  fecha: "2025-07-09T09:30+02:00"
+                  loteFabrica: "LF-PROD-001"
       responses:
         '200':
           description: regularizaciones recibidas correctamente
@@ -415,13 +467,11 @@ components:
           type: string
           format: date-time
           description: Fecha de creación en formato ISO 8601 con franja horaria
-          example: 
-            - 2025-07-09T10:15+02:00
+          example: "2025-07-09T10:15+02:00"
         origen:
           type: string
           description: Identificador del origen - Identificador de la fábrica en el ERP
-          example: 
-            - VC Lleida
+          example: "VC Lleida"
         expediciones:
           type: array
           items:
@@ -444,14 +494,12 @@ components:
                 type: string
                 format: date-time
                 description: fecha prevista en formato ISO 8601 con franja horaria
-                example: 
-                  - 2025-07-09T10:15+02:00
+                example: "2025-07-09T10:15+02:00"
               fechaRealizacion:
                 type: string
                 format: date-time
                 description: Fecha de realización de la expedición
-                example: 
-                  - 2025-07-09T10:15+02:00
+                example: "2025-07-09T10:15+02:00"
               matriculaRemolque:
                 type: string
                 description: matrícula del remolque
@@ -469,8 +517,7 @@ components:
                 type: string
                 format: date-time
                 description: fecha cuando se hace la pesada de entrada en formato ISO 8601 con franja horaria
-                example: 
-                  - 2025-07-09T10:15+02:00
+                example: "2025-07-09T10:15+02:00"
               estado:
                 type: string
                 description: >
@@ -509,14 +556,12 @@ components:
                       type: string
                       format: date-time
                       description: fecha de entrega en formato ISO 8601 con franja horaria
-                      example: 
-                        - 2025-07-09T10:15+02:00
+                      example: "2025-07-09T10:15+02:00"
                     fechaRealizacion:
                       type: string
                       format: date-time
                       description: fecha de realización en formato ISO 8601 con franja horaria
-                      example: 
-                        - 2025-07-09T10:15+02:00
+                      example: "2025-07-09T10:15+02:00"
                     cantidades:
                       type: array
                       items:
@@ -554,13 +599,11 @@ components:
           type: string
           format: date-time
           description: Fecha de creación en formato ISO 8601 con franja horaria
-          example: 
-            - 2025-07-09T10:15+02:00
+          example: "2025-07-09T10:15+02:00"
         origen:
           type: string
           description: Identificador del origen - Identificador de la fábrica en el ERP
-          example: 
-            - VC Lleida
+          example: "VC Lleida"
         regularizaciones:
           type: array
           items:
@@ -591,8 +634,7 @@ components:
                 type: string
                 format: date-time
                 description: Fecha en formato ISO 8601 con franja horaria
-                example: 
-                  - 2025-07-09T10:15+02:00
+                example: "2025-07-09T10:15+02:00"
               loteFabrica:
                 type: string
                 description: Lote que asigna el sistema de fábrica en la recepción de materia prima o producción de pienso
