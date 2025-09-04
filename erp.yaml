@@ -594,7 +594,9 @@ components:
                           description: Lote que asigna el sistema de fábrica en la fabricación de pienso
                         fechaCaducidad:
                           type: string
+                          format: date-time
                           description: Fecha de caducidad de Lote que asigna el sistema de fábrica en la fabricación de pienso
+                          example: "2025-07-09T10:15+02:00"
   securitySchemes:
     oauth2:
       type: oauth2
