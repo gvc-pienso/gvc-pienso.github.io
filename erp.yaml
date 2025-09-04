@@ -125,11 +125,8 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Producciones'
-            example:
-              fechaCaducidadLote: "2025-07-09T10:15+02:00"
-              
-              
+              $ref: '#/components/schemas/Producciones'               
+            
       responses:
         '200':
           description: Producciones recibidas correctamente
