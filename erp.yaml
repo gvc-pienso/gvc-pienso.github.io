@@ -128,7 +128,7 @@ paths:
               $ref: '#/components/schemas/Producciones'   
             example:
               fechaCreacion: "2025-07-09T10:15+02:00"
-              fechaProduccion: 2025-07-09T10:15+02:00"
+              fechaProduccion: "2025-07-09T10:15+02:00"
               fechaCaducidadLote: "2025-07-09T10:15+02:00"              
             
       responses:
