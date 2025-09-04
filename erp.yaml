@@ -125,8 +125,57 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Producciones'   
-                         
+              $ref: '#/components/schemas/Producciones'
+            example:   # 👈 Ejemplo completo para Example Value
+              mensajeId: "550e8400-e29b-41d4-a716-446655440000"
+              fechaCreacion: "2025-07-09T10:15+02:00"
+              origen: "VC Lleida"
+              fabricaciones:
+                - fechaProduccion: "2025-07-09T10:15+02:00"
+                  identificadorProduccion: "FAB-001"
+                  movimientos:
+                    consumidos:
+                      - codigoProducto: "MAT-001"
+                        presentacion: "Harina de maíz"
+                        cantidad: 1000.5
+                        unidad: "kg"
+                        loteRecepcion: "L001-PRV"
+                        loteFabrica: "LF-1001"
+                        identificadorProduccion: "FAB-001"
+                      - codigoProducto: "MAT-002"
+                        presentacion: "Soja"
+                        cantidad: 500.0
+                        unidad: "kg"
+                        loteRecepcion: "L002-PRV"
+                        loteFabrica: "LF-1002"
+                        identificadorProduccion: "FAB-001"
+                    producidos:
+                      - codigoProducto: "PROD-001"
+                        presentacion: "Pienso acabado"
+                        cantidad: 1450.5
+                        unidad: "kg"
+                        loteFabricacion: "LF-PROD-001"
+                        fechaCaducidad: "2026-01-09T00:00+02:00"
+                        identificadorProduccion: "FAB-001"
+                - fechaProduccion: "2025-07-10T08:00+02:00"
+                  identificadorProduccion: "FAB-002"
+                  movimientos:
+                    consumidos:
+                      - codigoProducto: "MAT-003"
+                        presentacion: "Trigo"
+                        cantidad: 800.0
+                        unidad: "kg"
+                        loteRecepcion: "L003-PRV"
+                        loteFabrica: "LF-2001"
+                        identificadorProduccion: "FAB-002"
+                    producidos:
+                      - codigoProducto: "PROD-002"
+                        presentacion: "Pienso premium"
+                        cantidad: 790.0
+                        unidad: "kg"
+                        loteFabricacion: "LF-PROD-002"
+                        fechaCaducidad: "2026-01-10T00:00+02:00"
+                        identificadorProduccion: "FAB-002"                     
             
       responses:
         '200':
@@ -516,8 +565,7 @@ components:
         origen:
           type: string
           description: Identificador del origen - Identificador de la fábrica en el ERP
-          example: 
-            - VC Lleida
+          example: "VC Lleida"
         fabricaciones:
           type: array
           items:
