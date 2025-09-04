@@ -592,7 +592,7 @@ components:
                         loteFabricacion:
                           type: string
                           description: Lote que asigna el sistema de fábrica en la fabricación de pienso
-                        FechaCaducidad:
+                        fechaCaducidad:
                           type: string
                           description: Fecha de caducidad de Lote que asigna el sistema de fábrica en la fabricación de pienso
   securitySchemes:
