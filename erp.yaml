@@ -164,9 +164,9 @@ components:
             - 2025-07-09T10:15+02:00
         origen:
           type: string
-          description: Identificador del sistema origen
+          description: Identificador del origen - Identificador de la fábrica en el ERP
           example: 
-            - D365
+            - VC Lleida
         recepciones:
           type: array
           items:
@@ -318,9 +318,9 @@ components:
             - 2025-07-09T10:15+02:00
         origen:
           type: string
-          description: Identificador del origen
+          description: Identificador del origen - Identificador de la fábrica en el ERP
           example: 
-            - D365
+            - VC Lleida
         expediciones:
           type: array
           items:
@@ -457,9 +457,9 @@ components:
             - 2025-07-09T10:15+02:00
         origen:
           type: string
-          description: Origen de la llamada
+          description: Identificador del origen - Identificador de la fábrica en el ERP
           example: 
-            - D365
+            - VC Lleida
         regularizaciones:
           type: array
           items:
@@ -514,7 +514,7 @@ components:
             - 2025-07-09T10:15+02:00
         origen:
           type: string
-          description: Origen de la llamada - Identificador de la fábrica en el ERP
+          description: Identificador del origen - Identificador de la fábrica en el ERP
           example: 
             - VC Lleida
         fabricaciones:
