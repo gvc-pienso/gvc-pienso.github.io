@@ -294,8 +294,7 @@ paths:
                 properties:
                   message:
                     type: string
-                    example: 
-                      - Producciones procesadas correctamente
+                    example: "Producciones procesadas correctamente"
         '400':
           description: Solicitud incorrecta
         '500':
