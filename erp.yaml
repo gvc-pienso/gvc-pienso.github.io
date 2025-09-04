@@ -127,6 +127,8 @@ paths:
             schema:
               $ref: '#/components/schemas/Producciones'   
             example:
+              fechaCreacion: "2025-07-09T10:15+02:00"
+              fechaProduccion: 2025-07-09T10:15+02:00"
               fechaCaducidadLote: "2025-07-09T10:15+02:00"              
             
       responses:
@@ -513,8 +515,7 @@ components:
           type: string
           format: date-time
           description: Fecha de creación en formato ISO 8601 con franja horaria
-          example: 
-            - 2025-07-09T10:15+02:00
+          example: "2025-07-09T10:15+02:00"
         origen:
           type: string
           description: Identificador del origen - Identificador de la fábrica en el ERP
@@ -532,8 +533,7 @@ components:
                 type: string
                 format: date-time
                 description: Fecha de producción en formato ISO 8601 con franja horaria
-                example: 
-                  - 2025-07-09T10:15+02:00
+                example: "2025-07-09T10:15+02:00"
               identificadorProduccion:
                 type: string
                 description: Identificador interno del sistema de fábrica de la producción. Sirve para vincular consumos y produccciones
