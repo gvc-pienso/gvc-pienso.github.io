@@ -1295,13 +1295,11 @@ components:
           type: string
           format: date-time
           description: Fecha de creación en formato ISO 8601 con franja horaria
-          example: 
-            - 2025-07-09T10:15+02:00
+          example: "2025-07-09T10:15+02:00"
         origen:
           type: string
           description: Identificador del sistema origen
-          example: 
-            - D365
+          example: "D365"
         contratosCompra:
           type: array
           description: Lista de los contratos compra.
@@ -1334,14 +1332,12 @@ components:
                 type: string
                 format: date-time
                 description: Fecha inicio en formato ISO 8601 con franja horaria
-                example: 
-                  - 2025-07-09T10:15+02:00
+                example: "2025-07-09T10:15+02:00"
               fechaFin:
                 type: string
                 format: date-time
                 description: Fecha fin en formato ISO 8601 con franja horaria
-                example: 
-                  - 2025-07-09T10:15+02:00
+                example: "2025-07-09T10:15+02:00"
               producto:
                 type: string
                 description: Código del artículo
@@ -1400,13 +1396,11 @@ components:
           type: string
           format: date-time
           description: Fecha de creación en formato ISO 8601 con franja horaria
-          example: 
-            - 2025-07-09T10:15+02:00
+          example: "2025-07-09T10:15+02:00"
         origen:
           type: string
           description: Identificador del sistema origen
-          example: 
-            - D365
+          example: "D365"
         recepciones:
           type: array
           items:
@@ -1452,8 +1446,7 @@ components:
                 type: string
                 format: date-time
                 description: fecha de entrada en formato ISO 8601 con franja horaria
-                example: 
-                  - 2025-07-09T10:15+02:00
+                example: "2025-07-09T10:15+02:00"
               pesoSalida:
                 type: number
                 format: double
@@ -1462,8 +1455,7 @@ components:
                 type: string
                 format: date-time
                 description: fecha de salida en formato ISO 8601 con franja horaria
-                example: 
-                  - 2025-07-09T10:15+02:00
+                example: "2025-07-09T10:15+02:00"
               lineas:
                 type: array
                 items:
@@ -1528,13 +1520,11 @@ components:
           type: string
           format: date-time
           description: Fecha de creación en formato ISO 8601 con franja horaria
-          example: 
-            - 2025-07-09T10:15+02:00
+          example: "2025-07-09T10:15+02:00"
         origen:
           type: string
           description: Identificador del sistema origen
-          example: 
-            - D365
+          example: "D365"
         recepciones:
           type: array
           items:
@@ -1550,8 +1540,7 @@ components:
                 type: string
                 format: date-time
                 description: Fecha en formato ISO 8601 con franja horaria
-                example: 
-                  - 2025-07-09T10:15+02:00
+                example: "2025-07-09T10:15+02:00"
               matriculaVehiculo:
                 type: string
               matriculaRemolque:
@@ -1571,8 +1560,7 @@ components:
                 type: string
                 format: date-time
                 description: Fecha de entrada en formato ISO 8601 con franja horaria
-                example: 
-                  - 2025-07-09T10:15+02:00
+                example: "2025-07-09T10:15+02:00"
               pesoEntrada:
                 type: number
                 format: double
@@ -1580,8 +1568,7 @@ components:
                 type: string
                 format: date-time
                 description: Fecha de salida en formato ISO 8601 con franja horaria
-                example: 
-                  - 2025-07-09T10:15+02:00
+                example: "2025-07-09T10:15+02:00"
               pesoSalida:
                 type: number
                 format: double
@@ -1663,13 +1650,11 @@ components:
           type: string
           format: date-time
           description: Fecha de creación en formato ISO 8601 con franja horaria
-          example:
-            - 2025-07-09T10:15+02:00
+          example: "2025-07-09T10:15+02:00"
         origen:
           type: string
           description: Origen de la llamada
-          example:
-            - D365
+          example: "D365"
         pedidos:
           type: array
           items:
@@ -1731,8 +1716,7 @@ components:
                       type: string
                       format: date-time
                       description: Fecha/hora de entrega planificada
-                      example: 
-                        - 2025-07-09T10:15+02:00
+                      example: "2025-07-09T10:15+02:00"
                     observaciones:
                       type: string
                     silos:
@@ -1766,13 +1750,11 @@ components:
           type: string
           format: date-time
           description: Fecha de creación en formato ISO 8601 con franja horaria
-          example:
-            - 2025-07-09T10:15+02:00
+          example: "2025-07-09T10:15+02:00"
         origen:
           type: string
           description: Origen de la llamada
-          example:
-            - D365
+          example: "D365"
         pedidos:
           type: array
           items:
@@ -1834,8 +1816,7 @@ components:
                       type: string
                       format: date-time
                       description: Fecha/hora de entrega planificada
-                      example: 
-                        - 2025-07-09T10:15+02:00
+                      example: "2025-07-09T10:15+02:00"
                     observaciones:
                       type: string
                     silos:
@@ -1869,13 +1850,11 @@ components:
           type: string
           format: date-time
           description: Fecha de creación en formato ISO 8601 con franja horaria
-          example: 
-            - 2025-07-09T10:15+02:00
+          example: "2025-07-09T10:15+02:00"
         origen:
           type: string
           description: Identificador del origen
-          example: 
-            - D365
+          example: "D365"
         viajes:
           type: array
           items:
@@ -1896,8 +1875,7 @@ components:
                 type: string
                 format: date-time
                 description: dia y hora que se preve la expedición
-                example: 
-                  - 2025-07-09T10:15+02:00
+                example: "2025-07-09T10:15+02:00"
               matriculaRemolque:
                 type: string
               matriculaVehiculo:
@@ -1941,13 +1919,11 @@ components:
           type: string
           format: date-time
           description: Fecha de creación en formato ISO 8601 con franja horaria
-          example: 
-            - 2025-07-09T10:15+02:00
+          example: "2025-07-09T10:15+02:00"
         origen:
           type: string
           description: Identificador del origen
-          example: 
-            - D365
+          example: "D365"
         clientes:
           type: array
           items:
@@ -1998,13 +1974,11 @@ components:
           type: string
           format: date-time
           description: Fecha de creación en formato ISO 8601 con franja horaria
-          example: 
-            - 2025-07-09T10:15+02:00
+          example: "2025-07-09T10:15+02:00"
         origen:
           type: string
           description: Identificador del origen
-          example: 
-            - D365
+          example: "D365"
         proveedores:
           type: array
           items:
@@ -2055,13 +2029,11 @@ components:
           type: string
           format: date-time
           description: Fecha de creación en formato ISO 8601 con franja horaria
-          example: 
-            - 2025-07-09T10:15+02:00
+          example: "2025-07-09T10:15+02:00"
         origen:
           type: string
           description: Identificador del origen
-          example: 
-            - D365
+          example: "D365"
         explotaciones:
           type: array
           items:
@@ -2081,7 +2053,7 @@ components:
               codigoREGA:
                 type: string
                 description: Identificador REGA de la explotación de la granja
-                example: ES123123123123
+                example: "ES123123123123"
               nif:
                 type: string
               nombre:
@@ -2118,13 +2090,11 @@ components:
           type: string
           format: date-time
           description: Fecha de creación en formato ISO 8601 con franja horaria
-          example: 
-            - 2025-07-09T10:15+02:00
+          example: "2025-07-09T10:15+02:00"
         origen:
           type: string
           description: Identificador del origen
-          example: 
-            - D365
+          example: "D365"
         transportistas:
           type: array
           items:
@@ -2177,13 +2147,11 @@ components:
           type: string
           format: date-time
           description: Fecha de creación en formato ISO 8601 con franja horaria
-          example: 
-            - 2025-07-09T10:15+02:00
+          example: "2025-07-09T10:15+02:00"
         origen:
           type: string
           description: Identificador del origen
-          example: 
-            - D365
+          example: "D365"
         conductores:
           type: array
           items:
@@ -2236,13 +2204,11 @@ components:
           type: string
           format: date-time
           description: Fecha de creación en formato ISO 8601 con franja horaria
-          example: 
-            - 2025-07-09T10:15+02:00
+          example: "2025-07-09T10:15+02:00"
         origen:
           type: string
           description: Identificador del origen
-          example: 
-            - D365
+          example: "D365"
         conductores:
           type: array
           items:
@@ -2285,13 +2251,11 @@ components:
           type: string
           format: date-time
           description: Fecha de creación en formato ISO 8601 con franja horaria
-          example: 
-            - 2025-07-09T10:15+02:00
+          example: "2025-07-09T10:15+02:00"
         origen:
           type: string
           description: Identificador del origen
-          example: 
-            - D365
+          example: "D365"
         vehiculos:
           type: array
           items:
@@ -2433,11 +2397,11 @@ components:
           type: string
           format: date-time
           description: Fecha de creación en formato ISO 8601 con franja horaria
-          example: 
-            - 2025-07-09T10:15+02:00
+          example: "2025-07-09T10:15+02:00"
         origen:
           type: string
           description: Origen de la llamada
+          example: "D365"
         formulas:
           type: object
           required:
@@ -2518,13 +2482,11 @@ components:
           type: string
           format: date-time
           description: fecha de creación en formato ISO 8601 con franja horaria
-          example: 
-            - 2025-07-09T10:15+02:00
+          example: "2025-07-09T10:15+02:00"
         origen:
           type: string
           description: Origen de la llamada
-          example: 
-            - D365
+          example: "D365"
         fabricaciones:
           type: array
           items:
@@ -2536,8 +2498,7 @@ components:
                 type: string
                 format: date-time
                 description: fecha de producción en formato ISO 8601 con franja horaria
-                example: 
-                  - 2025-07-09T10:15+02:00
+                example: "2025-07-09T10:15+02:00"
               identificadorProduccion:
                 type: string
               movimientos:
