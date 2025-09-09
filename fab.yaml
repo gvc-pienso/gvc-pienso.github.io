@@ -1343,7 +1343,16 @@ components:
                 description: Código del artículo
               presentacion:
                 type: string
-                description: Código de presentación
+                description: > 
+                        Código presentación:
+                        <br> `N` - Ninguno
+                        <br> `G` - Grano
+                        <br> `H` - Harina
+                        <br> `P` - Polvo
+                        <br> `L` - Líquido
+                        <br> `E` - Extrusionado
+                        <br> `GR` - Granulado
+
               cantidad:
                 type: number
                 format: double
@@ -1354,9 +1363,10 @@ components:
                 type: string
                 description: >
                       Estado del acuerdo:
-                      <br> `O` - Aplicación abierta
-                      <br> `T` - Aplicación cerrada
-                      <br> `P` - Pendiente de abrirse
+                      <br> `A` - Abierto
+                      <br> `C` - Cerrado
+                      <br> `N` - No disponible
+                      <br> `F` - Finalizado
               observacion:
                 type: string
                 description: Observaciones del acuerdo
@@ -1367,7 +1377,7 @@ components:
                   properties:
                     numeroParametro:
                       type: string
-                      description: Identificador del parámetro del grupo de prueba
+                      description: Identificador del parámetro del grupo de prueba (definir conversiones en D365)
                     valorOptimo:
                       type: number
                       format: double
