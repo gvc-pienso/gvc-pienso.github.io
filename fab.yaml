@@ -1353,10 +1353,10 @@ components:
                         <br> `E` - Extrusionado
                         <br> `GR` - Granulado
 
-              cantidad:
+              cantidadContrato:
                 type: number
                 format: double
-                description: Cantidad pendiente de entrega
+                description: Cantidad del contrato
               unidad:
                 type: string  
               estado:
@@ -1785,9 +1785,15 @@ components:
                 description: fecha de entrega del pedido
               cliente:
                 type: string
-              explotacion:
+              nombreCliente:
+                type: string
+                description: nombre del cliente
+              explotacionReferencia:
                 type: string
                 description: Código de la granja
+              explotacionNombre:
+                type: string
+                description: Nombre de la granja
               direccionEntrega: 
                 type: string
                 description: Direccion donde realizar la entrega
@@ -1890,10 +1896,16 @@ components:
                 type: string
               matriculaVehiculo:
                 type: string
-              agenciaTransporte:
+              códigoAgenciaTransporte:
+                type: string
+                description: Código de la empresa intermediaria comercial del viaje
+              nombreAgenciaTransporte:
                 type: string
                 description: Empresa intermediaria comercial del viaje
-              operadorTransporte:
+              codigoOperadorTransporte:
+                type: string
+                description: Código de la empresa que realiza el viaje.
+              nombreOperadorTransporte:
                 type: string
                 description: Empresa que realiza el viaje.
               codigoConductor:
@@ -1968,6 +1980,8 @@ components:
                 type: string
               observaciones:
                 type: string
+              email:
+                type: string
     Proveedores:
       type: object
       required:
@@ -2023,6 +2037,8 @@ components:
                 type: string
               observaciones:
                 type: string
+              email:
+                type: string
     Explotaciones:
       type: object
       required:
@@ -2064,6 +2080,9 @@ components:
                 type: string
                 description: Identificador REGA de la explotación de la granja
                 example: "ES123123123123"
+              estadoSanitario:
+                type: string
+                description: Tipo de granja (tipo de reparto de pienso) usado para el reparto de pienso a nivel sanitario
               nif:
                 type: string
               nombre:
@@ -2084,6 +2103,9 @@ components:
                 type: string
               clienteExplotacion:
                 type: string
+              email:
+                type: string
+
     Transportistas:
       type: object
       required:
@@ -2140,6 +2162,10 @@ components:
               observaciones:
                 type: string
               delegacion:
+                type: string
+              email:
+                type: string
+              emailAlbaran:
                 type: string
     Conductores:
       type: object
@@ -2198,13 +2224,15 @@ components:
                 type: string
               codigoTransportista:
                 type: string
+              email:
+                type: string
     MateriaPrima:
       type: object
       required:
         - mensajeId
         - fechaCreacion
         - origen
-        - conductores
+        - materiasPrimas
       properties:
         mensajeId:
           type: string
@@ -2219,32 +2247,24 @@ components:
           type: string
           description: Identificador del origen
           example: "D365"
-        conductores:
+        materiasPrimas:
           type: array
           items:
             type: object
             required:
-              - codigoExterno
+              - codigExterno
+              - nombre
             properties:
               codigoExterno:
                 type: string
-              clase:
-                type: string
+                description: Código del artículo de mmpp en el ERP
               nombre:
                 type: string
-              description:
+                description: Nombre del artículo de mmpp
+              descripción:
                 type: string
-              versiones:
-                type: array
-                items:
-                  type: object
-                  required:
-                    - codigoExternoVersion
-                  properties:  
-                    codigoExternoVersion:
-                      type: string
-                    presentacionVersion:
-                      type: string
+                description: Descripción del artículo de mmpp
+          
     Vehiculos:
       type: object
       required:
@@ -2273,6 +2293,7 @@ components:
             required:
               - accion
               - matriculaRemolque
+              - tipoVehiculo
             properties:
               accion:
                 type: string
@@ -2280,10 +2301,18 @@ components:
                   Puede tener los siguienes valores:
                   <br> `A` - Alta
                   <br> `B` - Baja
+              tipoVehiculo:
+                type: string
+                description: >
+                  Puede tener los siguienes valores:
+                  <br> `T` - Tractora
+                  <br> `R` - Remolque
+                  <br> `X` - Pendiente de definir lista
+              identificadorRfidVehiculo:
+                type: string
+                description: Identificador RFID del vehículo (para las tarjetas)
               matriculaRemolque:
                 type: string
-              tipoVehiculo:
-                type: integer
               vehiculoRecepciones:
                 type: string
                 description: >
@@ -2322,8 +2351,6 @@ components:
                   Puede tener los siguienes valores:
                   <br> `S` - Sí
                   <br> `N` - No
-              puntoReferencia:
-                type: string
               longitudReferenciaDelantera:
                 type: number
                 format: double
