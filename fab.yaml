@@ -1603,10 +1603,6 @@ components:
                       type: string
                     presentacion:
                       type: string
-                    numerosEnvases:
-                      type: integer
-                    codigoEnvase:
-                      type: string
                     cantidadTeorica:
                       type: number
                       format: double
@@ -1785,6 +1781,7 @@ components:
                 description: fecha de entrega del pedido
               cliente:
                 type: string
+                description: identificador del cliente del ERP
               nombreCliente:
                 type: string
                 description: nombre del cliente
@@ -1917,14 +1914,11 @@ components:
               nombreConductor:
                 type: string
                 description: Nombre del conductor
-              lineas:
+              pedidos:
                 type: array
                 items:
-                  type: object
-                  properties:
-                    pedido:
-                      type: string
-                      description: Codigo externo del pedido
+                  $ref: '#/components/schemas/PedidosPlanificados'
+                      
     Clientes:
       type: object
       required:
