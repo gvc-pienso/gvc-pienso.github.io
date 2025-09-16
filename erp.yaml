@@ -460,11 +460,11 @@ components:
                     cantidadTeorica:
                       type: number
                       format: double
-                      description: Cantidad teorica en la recepción
+                      description: Cantidad teorica en la recepción. Peso en origen
                     cantidadReal:
                       type: number
                       format: double
-                      description: Cantidad real de la recepción
+                      description: Cantidad real de la recepción que ha entrado en el sistema
                     unidad:
                       description: Unidad de la cantidad teorica o real
                       type: string  
@@ -597,7 +597,7 @@ components:
                       description: Código del cliente a expedir el pienso
                     explotacion:
                       type: string
-                      description: Identificador de la explotación
+                      description: Identificador de la explotación (Código de granja)
                     pedido:
                       type: string
                       description: Identificador del pedido del erp
