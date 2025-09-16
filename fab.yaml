@@ -834,7 +834,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/RecepcionesMMPPPlanificadas"
+              $ref: "#/components/schemas/RecepcionesPlanificadas"
       responses:
         '200':
           description: Recepción procesada correctamente
@@ -1325,9 +1325,12 @@ components:
               codigoExterno:
                 type: string
                 description: Código externo del contrato de compra
+              idProveedor:
+                type: string
+                description: Identificador de la cuenta del proveedor
               proveedor:
                 type: string
-                description: Cuenta del proveedor
+                description: descricpión del proveedor
               fechaInicio:
                 type: string
                 format: date-time
@@ -1822,7 +1825,7 @@ components:
                       type: string
                     loteExplotacion:
                       type: string
-                      description: Lote de la granja
+                      description: Lote de la granja/crianza
                     prioridad:
                       type: string
                     fechaEntrega:
