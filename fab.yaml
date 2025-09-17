@@ -16,14 +16,12 @@ tags:
     description: Servicios de expediciones de pienso
   - name: Agenda
     description: Servicios de datos de tablas maestras
-  - name: Artículos de materia Prima
+  - name: Materia Prima
     description: Servicios de datos de artículos de materia prima
   - name: Vehículos
     description: Servicios de datos de vehículos
   - name: Fórmulas
     description: Servicios de fórmulas
-  - name: Producciones
-    description: Servicios de Producciones de pienso
 paths:
   /clientes:
     post:
