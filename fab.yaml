@@ -2011,12 +2011,13 @@ components:
                           description: cantidad a aplicar en la formula
                         unidad:
                           type: string
-                          description: unidad de la cantidad
+                          description: unidad de la cantidad a aplicar en la formula
                         cantidadPorSerie:
                            type: string
                            description: cantidad por serie (viene definido por el BRILL)
                         unidadCantidadPorSerie:
-                           type: string
+                           type: number
+                           format: double
                            description: unidad de la cantidad por serie (viene definido por el BRILL)
                         bloqueo:
                           type: string
