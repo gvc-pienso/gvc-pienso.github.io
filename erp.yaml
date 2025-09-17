@@ -8,9 +8,9 @@ info:
 servers:
   - url: https://server.erp.com
 tags:
-  - name: Recepciones de mmpp
+  - name: Recepciones
     description: Servicios de recepciones de materia prima
-  - name: Expediciones de pienso
+  - name: Expediciones
     description: Servicios de expediciones de pienso
   - name: Regularizaciones
     description: Servicios de Regularizaciones
