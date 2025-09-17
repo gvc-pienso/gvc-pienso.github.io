@@ -389,10 +389,10 @@ components:
             properties:
               idViaje:
                 type: string
-                description: Número de identificación interna del viaje
+                description: Número de identificación interna del viaje del Sistema de fábrica
               codigoExterno:
                 type: string
-                description: Identificador de la recepción (referencia transportista)
+                description: Identificador de la recepción del ERP (referencia transportista)
               estado:
                 type: string
                 description: >
@@ -451,22 +451,23 @@ components:
                   properties:
                     id:
                       type: string
-                      description: Identificador de la linea.
+                      description: Identificador de la linea
                     producto:
                       type: string
-                      description: Identificador del artículo a recepcionar.
-                    presentacion:
-                      type: string
+                      description: Identificador del artículo a recepcionar
                     cantidadTeorica:
                       type: number
                       format: double
                       description: Cantidad teorica en la recepción. Peso en origen
+                    unidadCantidadTeorica:
+                      description: Unidad de la cantidad teorica
+                      type: string  
                     cantidadReal:
                       type: number
                       format: double
                       description: Cantidad real de la recepción que ha entrado en el sistema
-                    unidad:
-                      description: Unidad de la cantidad teorica o real
+                    unidadCantidadReal:
+                      description: Unidad de la cantidad real
                       type: string  
                     proveedor:
                       type: string
@@ -490,7 +491,19 @@ components:
                       description: Código de muestra
                     referenciaProveedor:
                       type: string
-                      description: referencia del proveedor
+                      description: referencia del proveedor. Albarán del proveedor.
+                    referenciaSistemaFabrica:
+                      type: string
+                      description: referencia del Sistema de fábrica. Albarán del sitema de fábrica.
+                    codigoRechazo:
+                      type: string
+                      description: Código de rechazo de la línia de la recepción de mmpp
+                    observacionesAnomalia:
+                      type: string
+                      description: Texto libre para observaciones de fábrica
+                    certificadoDesinfeccion:
+                      type: string
+                      description: Identificador del certificado de desinfección del vehículo
                     calidad:
                       type: array
                       items:
