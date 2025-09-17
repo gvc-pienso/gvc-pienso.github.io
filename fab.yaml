@@ -2012,6 +2012,12 @@ components:
                         unidad:
                           type: string
                           description: unidad de la cantidad
+                        cantidadPorSerie:
+                           type: string
+                           description: cantidad por serie (viene definido por el BRILL)
+                        unidadCantidadPorSerie:
+                           type: string
+                           description: unidad de la cantidad por serie (viene definido por el BRILL)
                         bloqueo:
                           type: string
                           description: >
