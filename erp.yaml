@@ -8,9 +8,9 @@ info:
 servers:
   - url: https://server.erp.com
 tags:
-  - name: Recepciones
+  - name: Recepciones de mmpp
     description: Servicios de recepciones de materia prima
-  - name: Expediciones
+  - name: Expediciones de pienso
     description: Servicios de expediciones de pienso
   - name: Regularizaciones
     description: Servicios de Regularizaciones
@@ -29,60 +29,67 @@ paths:
             schema:
               $ref: "#/components/schemas/Recepciones"
             example:
-              mensajeId: "550e8400-e29b-41d4-a716-446655440000"
+              mensajeId: "4d9a1c30-6a2e-4a6c-9f3b-6b12c3d4e5f6"
               fechaCreacion: "2025-07-09T10:15+02:00"
               origen: "VC Lleida"
               recepciones:
-                - idViaje: "VIAJE-001"
-                  codigoExterno: "EXT-001"
+                - idViaje: "VJ-2025-000123"
+                  codigoExterno: "ERP-REC-784512"
                   estado: "C"
                   matriculaVehiculo: "1234-ABC"
                   matriculaRemolque: "5678-DEF"
-                  operadorTransporte: "OP-TRANS-01"
-                  agenciaTransporte: "AG-TRANS-01"
-                  conductor: "COND-001"
-                  nifConductor: "12345678A"
-                  nombreConductor: "Juan Pérez"
+                  operadorTransporte: "OP-TRAN-07"
+                  agenciaTransporte: "AG-LOG-21"
+                  conductor: "COND-00987"
+                  nifConductor: "12345678Z"
+                  nombreConductor: "Carlos Martínez"
                   fechaEntrada: "2025-07-09T08:30+02:00"
-                  pesoEntrada: 28000.0
-                  fechaSalida: "2025-07-09T10:00+02:00"
-                  pesoSalida: 15000.0
-                  codigoRechazo: null
+                  pesoEntrada: 28450.75
+                  fechaSalida: "2025-07-09T11:10+02:00"
+                  pesoSalida: 14520.30
                   lineas:
                     - id: "L-001"
-                      producto: "MAT-001"
-                      presentacion: "Harina de maíz"
-                      cantidadTeorica: 10000.0
-                      cantidadReal: 9950.5
-                      unidad: "kg"
-                      proveedor: "PRV-001"
-                      aplicacion: "AC-2025-001"
-                      loteProveedor: "LP-0001"
-                      loteFabrica: "LF-1001"
-                      fechaCaducidadLote: "2026-01-09T00:00+02:00"
-                      codigoMuestra: "MUE-1001"
-                      referenciaProveedor: "REF-PRV-001"
+                      producto: "ALM-00045"
+                      cantidadTeorica: 12000.0
+                      unidadCantidadTeorica: "kg"
+                      cantidadReal: 11850.5
+                      unidadCantidadReal: "kg"
+                      proveedor: "PRV-00321"
+                      aplicacion: "AC-2025-017"
+                      loteProveedor: "LP-789654"
+                      loteFabrica: "LF-20250709-01"
+                      fechaCaducidadLote: "2026-01-15T00:00+02:00"
+                      codigoMuestra: "QM-2025-001"
+                      referenciaProveedor: "ALB-PRV-556677"
+                      referenciaSistemaFabrica: "ALB-SF-998877"
+                      codigoRechazo: null
+                      observacionesAnomalia: "Sin incidencias"
+                      certificadoDesinfeccion: "CD-2025-0001"
                       calidad:
                         - codigoCalidad: 101
-                          valor: 12.5
+                          valor: 8.7
                         - codigoCalidad: 205
-                          valor: 8.0
+                          valor: 12.3
                     - id: "L-002"
-                      producto: "MAT-002"
-                      presentacion: "Soja"
-                      cantidadTeorica: 8000.0
-                      cantidadReal: 8000.0
-                      unidad: "kg"
-                      proveedor: "PRV-002"
-                      aplicacion: "AC-2025-002"
-                      loteProveedor: "LP-0002"
-                      loteFabrica: "LF-1002"
-                      fechaCaducidadLote: "2026-02-01T00:00+02:00"
-                      codigoMuestra: "MUE-1002"
-                      referenciaProveedor: "REF-PRV-002"
+                      producto: "ALM-00078"
+                      cantidadTeorica: 7000.0
+                      unidadCantidadTeorica: "kg"
+                      cantidadReal: 6950.0
+                      unidadCantidadReal: "kg"
+                      proveedor: "PRV-00456"
+                      aplicacion: "AC-2025-018"
+                      loteProveedor: "LP-456123"
+                      loteFabrica: "LF-20250709-02"
+                      fechaCaducidadLote: "2025-12-31T00:00+02:00"
+                      codigoMuestra: "QM-2025-002"
+                      referenciaProveedor: "ALB-PRV-112233"
+                      referenciaSistemaFabrica: "ALB-SF-665544"
+                      codigoRechazo: null
+                      observacionesAnomalia: ""
+                      certificadoDesinfeccion: "CD-2025-0002"
                       calidad:
                         - codigoCalidad: 101
-                          valor: 11.9
+                          valor: 9.1
       responses:
         '200':
           description: Recepción procesada correctamente
