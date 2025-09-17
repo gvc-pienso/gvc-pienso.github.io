@@ -1109,18 +1109,6 @@ components:
               producto:
                 type: string
                 description: Código del artículo
-              presentacion:
-                type: string
-                description: > 
-                        Código presentación:
-                        <br> `N` - Ninguno
-                        <br> `G` - Grano
-                        <br> `H` - Harina
-                        <br> `P` - Polvo
-                        <br> `L` - Líquido
-                        <br> `E` - Extrusionado
-                        <br> `GR` - Granulado
-
               cantidadContrato:
                 type: number
                 format: double
