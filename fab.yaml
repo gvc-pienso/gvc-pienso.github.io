@@ -22,8 +22,6 @@ tags:
     description: Servicios de datos de vehículos
   - name: Fórmulas
     description: Servicios de fórmulas
-  - name: Pedidos de pienso
-    description: Servicios de pedidos de pienso
   - name: Producciones
     description: Servicios de Producciones
 paths:
@@ -644,52 +642,6 @@ paths:
                     description: >
                       Resultado de servicio:
                       <br> `NOK` - Resultado incorrecto
-  /contratosCompra-validar:
-    post:
-      tags:
-        - Contratos de Compra
-      summary: Validar en el software de fábrica los contratos compra enviadas al ERP
-      parameters:
-        - name: id
-          in: query
-          description: Identificador del contrato compra (codigoExterno del contrato de compra)
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: contrato compra validado correctamente
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    example: 
-                      - Se ha validado correctamente.
-                  code:
-                    type: string
-                    description: >
-                      Resultado de servicio:
-                      <br> `OK` - Resultado correcto
-                      <br> `NOK` - Resultado incorrecto
-        '500':
-          description: Error al procesar el contrato compra
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    example: 
-                      - Se debe rellenar el campo id.
-                  code:
-                    type: string
-                    description: >
-                      Resultado de servicio:
-                      <br> `NOK` - Resultado incorrecto
   /contratosCompra:
     post:
       tags:
@@ -778,52 +730,6 @@ paths:
                     description: >
                       Resultado de servicio:
                       <br> `NOK` - Resultado incorrecto
-  /recepciones-validar:
-    post:
-      tags:
-        - Recepciones
-      summary: Validar en el software de fábrica las recepciones enviadas al ERP
-      parameters:
-        - name: id
-          in: query
-          description: Identificador del la repceción (codigoExterno de la recepción)
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: Recepción validada correctamente
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    example: 
-                      - Se ha validado correctamente.
-                  code:
-                    type: string
-                    description: >
-                      Resultado de servicio:
-                      <br> `OK` - Resultado correcto
-                      <br> `NOK` - Resultado incorrecto
-        '500':
-          description: Error al procesar la recepción
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    example: 
-                      - Se debe rellenar el campo id.
-                  code:
-                    type: string
-                    description: >
-                      Resultado de servicio:
-                      <br> `NOK` - Resultado incorrecto 
   /recepciones:
     post:
       tags:
@@ -886,7 +792,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Recepciones"
+                $ref: "#/components/schemas/RecepcionesPlanificadas"
         '404':
           description: No se encuentra el registro
           content:
@@ -1063,52 +969,6 @@ paths:
                     description: >
                       Resultado de servicio:
                       <br> `NOK` - Resultado incorrecto
-  /expediciones-validar:
-    post:
-      tags:
-        - Expediciones
-      summary: Validar en el software de fábrica las expediciones de pienso enviadas al ERP
-      parameters:
-        - name: id
-          in: query
-          description: Identificador de la expediciones de pienso (codigoExterno de la expedición)
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: expedición validada correctamente
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    example: 
-                      - Se ha validado correctamente.
-                  code:
-                    type: string
-                    description: >
-                      Resultado de servicio:
-                      <br> `OK` - Resultado correcto
-                      <br> `NOK` - Resultado incorrecto
-        '500':
-          description: Error al procesar
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    example: 
-                      - Se debe rellenar el campo id.
-                  code:
-                    type: string
-                    description: >
-                      Resultado de servicio:
-                      <br> `NOK` - Resultado incorrecto
   /formulas:
     post:
       tags:
@@ -1183,104 +1043,11 @@ paths:
                     description: >
                       Resultado de servicio:
                       <br> `NOK` - Resultado incorrecto
-  /producciones-validar:
-    post:
-      tags:
-        - Producciones
-      summary: Validar en el software movimientos de producciones enviadas al ERP
-      parameters:
-        - name: id
-          in: query
-          description: Identificador del movimiento (identificadorProduccion, de la producción)
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: validado correctamente
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    example: 
-                      - Se ha validado correctamente.
-                  code:
-                    type: string
-                    description: >
-                      Resultado de servicio:
-                      <br> `OK` - Resultado correcto
-                      <br> `NOK` - Resultado incorrecto
-        '500':
-          description: Error al procesar
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    example: 
-                      - Se debe rellenar el campo id.
-                  code:
-                    type: string
-                    description: >
-                      Resultado de servicio:
-                      <br> `NOK` - Resultado incorrecto
-  /producciones:
-    get:
-      tags:
-        - Producciones
-      summary: Consulta de Producciones de pienso
-      parameters:
-        - name: id
-          in: query
-          description: Identificador de la Producción (MatriculaEvento de la producción)
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: Respuesta exitosa
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Producciones"
-        '404':
-          description: No se encuentra el registro
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                  code:
-                    type: string
-                    description: >
-                      Resultado de servicio:
-                      <br> `OK` - Resultado correcto
-                      <br> `NOK` - Resultado incorrecto
-        '500':
-          description: Error del servidor
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                  code:
-                    type: string
-                    description: >
-                      Resultado de servicio:
-                      <br> `NOK` - Resultado incorrecto
 components:
   schemas:
     ContratosCompra:
       type: object
+      description: Objeto que se manda desde el ERP para communicar los acuerdos/aplicaciones de fábrica
       required:
         - mensajeId
         - fechaCreacion
@@ -1381,6 +1148,9 @@ components:
                     numeroParametro:
                       type: string
                       description: Identificador del parámetro del grupo de prueba (definir conversiones en D365)
+                    descParametro:
+                      type: string
+                      description: Descripción del parámetro del grupo de prueba
                     valorOptimo:
                       type: number
                       format: double
@@ -1395,6 +1165,7 @@ components:
                       description: Valor máximo aceptable
     RecepcionesPlanificadas:
       type: object
+      description: Objeto que se manda desde el ERP para adelantar la planificación de recepciones de mmpp
       required:
         - mensajeId
         - fechaCreacion
@@ -1433,13 +1204,29 @@ components:
                   <br> `B` - Baja
               codigoExterno:
                 type: string
-                description: identificador de la recepción en el ERP
-              matriculaRemolque:
+                description: identificador de la recepción en el ERP (referencia transportista. Av-xxx)
+              codigoMatriculaVehiculo:
                 type: string
+                description: identificador del vehículo en el ERP
               matriculaVehiculo:
                 type: string
-              transportista:
+              codigoMatriculaRemolque:
                 type: string
+                description: identificador del remolque en el ERP
+              matriculaRemolque:
+                type: string
+              códigoAgenciaTransporte:
+                type: string
+                description: Código de la empresa intermediaria comercial del viaje
+              nombreAgenciaTransporte:
+                type: string
+                description: Empresa intermediaria comercial del viaje
+              codigoOperadorTransporte:
+                type: string
+                description: Código de la empresa que realiza el viaje.
+              nombreOperadorTransporte:
+                type: string
+                description: Empresa que realiza el viaje.
               codigoConductor:
                 type: string
                 description: Identificador en el ERP del conductor.
@@ -1450,142 +1237,6 @@ components:
                 type: string
                 description: Nombre del conductor
               observaciones:
-                type: string
-              pesoEntrada:
-                type: number
-                format: double
-                description: Peso del vehículo de entrada
-              fechaEntrada:
-                type: string
-                format: date-time
-                description: fecha de entrada en formato ISO 8601 con franja horaria
-                example: "2025-07-09T10:15+02:00"
-              pesoSalida:
-                type: number
-                format: double
-                description: Peso del vehículo de salida
-              fechaSalida:
-                type: string
-                format: date-time
-                description: fecha de salida en formato ISO 8601 con franja horaria
-                example: "2025-07-09T10:15+02:00"
-              lineas:
-                type: array
-                items:
-                  type: object
-                  required:
-                    - producto
-                    - cantidadTeorica
-                    - unidad
-                  properties:
-                    producto:
-                      type: string
-                      description: Identificador del producto
-                    presentacion:
-                      type: string
-                      description: presentación del producto
-                    cantidadTeorica:
-                      type: number
-                      format: double
-                      description: Cantidad teorica a recepcionar
-                    unidad:
-                      type: string
-                      description: Unidad de la cantidad teorica a recepcionar
-                    proveedor:
-                      type: string
-                      description: Codigo del proveedor de la materia prima
-                    aplicacion:
-                      type: string
-                      description: Codigo del acuerdo de compra de materia prima.
-                    loteProveedor:
-                      type: string
-                      description: Lote del proveedor de materia prima
-                    loteFabrica:
-                      type: string
-                      description: Lote que asigna el sistema de fábrica en la recepción de materia prima o producción de pienso
-                    observaciones:
-                      type: string
-                      description: Observacaciones sobre la recepción.
-                    calidad:
-                      type: array
-                      items:
-                        type: object
-                        properties:
-                          codigoCalidad:
-                            type: integer
-                            description: Codigo de calidad
-                          valor:
-                            type: string
-                            description: Valor que debe tomar la calidad              
-    Recepciones:
-      type: object
-      required:
-        - mensajeId
-        - fechaCreacion
-        - origen
-        - recepciones
-      properties:
-        mensajeId:
-          type: string
-          format: uuid
-          description: Identificador del mensaje
-        fechaCreacion:
-          type: string
-          format: date-time
-          description: Fecha de creación en formato ISO 8601 con franja horaria
-          example: "2025-07-09T10:15+02:00"
-        origen:
-          type: string
-          description: Identificador del sistema origen
-          example: "D365"
-        recepciones:
-          type: array
-          items:
-            type: object
-            properties:
-              viajeId:
-                type: string
-                description: Número de identificación interna del viaje
-              codigoExterno:
-                type: string
-                description: Identificador de la recepción (referencia transportista)
-              fecha:
-                type: string
-                format: date-time
-                description: Fecha en formato ISO 8601 con franja horaria
-                example: "2025-07-09T10:15+02:00"
-              matriculaVehiculo:
-                type: string
-              matriculaRemolque:
-                type: string
-              transportista:
-                type: string
-              codigoConductor:
-                type: string
-                description: Identificador en el ERP del conductor.
-              nifConductor:
-                type: string
-                description: nif del conductor
-              nombreConductor:
-                type: string
-                description: Nombre del conductor
-              fechaEntrada:
-                type: string
-                format: date-time
-                description: Fecha de entrada en formato ISO 8601 con franja horaria
-                example: "2025-07-09T10:15+02:00"
-              pesoEntrada:
-                type: number
-                format: double
-              fechaSalida:
-                type: string
-                format: date-time
-                description: Fecha de salida en formato ISO 8601 con franja horaria
-                example: "2025-07-09T10:15+02:00"
-              pesoSalida:
-                type: number
-                format: double
-              codigoRechazo:
                 type: string
               lineas:
                 type: array
@@ -1593,156 +1244,47 @@ components:
                   type: object
                   required:
                     - id
-                    - numeroLinea
                     - producto
                     - cantidadTeorica
-                    - cantidadReal
+                    - unidad
                   properties:
                     id:
                       type: string
-                    numeroLinea:
-                      type: integer
-                    producto:
+                      description: Identificador de la linea
+                    codigoProducto:
                       type: string
-                    presentacion:
+                      description: Identificador del producto en el ERP
+                    descricpionProducto:
                       type: string
+                      description: Descricpión del producto en el ERP
                     cantidadTeorica:
                       type: number
                       format: double
-                    cantidadReal:
-                      type: number
-                      format: double
-                    unidad:
-                      type: string  
-                    proveedor:
+                      description: Cantidad teorica a recepcionar
+                    unidadCantidadTeorica:
                       type: string
+                      description: Unidad de la cantidad teorica a recepcionar
+                    codigoProveedor:
+                      type: string
+                      description: Codigo del proveedor de la materia prima
+                    descricpionProveedor:
+                      type: string
+                      description: Descripción del proveedor de la materia prima
                     aplicacion:
                       type: string
+                      description: Codigo del acuerdo de compra de materia prima (nº aplicación).
+                    idPedidoCompra:
+                      type: string
+                      description: Codigo del pedido de compra del ERP si la recepción NO es con Acuerdo de compra.
                     loteProveedor:
                       type: string
-                    loteEntrada:
+                      description: Lote del proveedor de materia prima
+                    loteFabrica:
                       type: string
-                    fechaCaducidadLote:
-                      type: string
-                    codigoMuestra:
-                      type: string
-                    codigoRecipiente:
-                      type: string
-                    referenciaProveedor:
-                      type: string
-                    calidad:
-                      type: array
-                      items:
-                        type: object
-                        properties:
-                          codigoCalidad:
-                            type: integer
-                          description:
-                            type: string
-                          valor:
-                            type: number
-                            format: double
-    
-    PedidosMMPPPlanificados:
-      type: object
-      description: Objeto que se manda desde el ERP para adelantar la planificación de un pedido de pienso
-      required:
-        - mensajeId
-        - fechaCreacion
-        - origen
-        - pedidos
-      properties:
-        mensajeId:
-          type: string
-          format: uuid
-        fechaCreacion:
-          type: string
-          format: date-time
-          description: Fecha de creación en formato ISO 8601 con franja horaria
-          example: "2025-07-09T10:15+02:00"
-        origen:
-          type: string
-          description: Origen de la llamada
-          example: "D365"
-        pedidos:
-          type: array
-          items:
-            type: object
-            properties:
-              accion:
-                type: string
-                description: >
-                    Acción que se realiza:
-                    <br> `A` - Alta
-                    <br> `B` - Baja
-              codigoExterno:
-                type: string
-                description: Codigo del pedido del ERP
-              fecha:
-                type: string
-                format: date
-                description: fecha de entrega del pedido
-              cliente:
-                type: string
-              explotacion:
-                type: string
-                description: Código de la granja
-              direccionEntrega: 
-                type: string
-                description: Dirección donde realizar la entrega
-              nombreGranjero:
-                type: string
-              telefonoExplotacion:
-                type: string
-              observaciones:
-                type: string
-              lineas:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    producto:
-                      type: string
-                      description: Identificador del producto
-                    cantidad:
-                      type: number
-                      format: double
-                      description: cantidad planificada
-                    unidad:
-                      type: string
-                      description: Unidad de la cantidad planificada
-                    recetaOficial:
-                      type: string
-                      description: Codigo receta oficial
-                    presentacion:
-                      type: string
-                    loteExplotacion:
-                      type: string
-                      description: Lote de la granja
-                    prioridad:
-                      type: string
-                    fechaEntrega:
-                      type: string
-                      format: date-time
-                      description: Fecha/hora de entrega planificada
-                      example: "2025-07-09T10:15+02:00"
+                      description: Lote que asigna el sistema de fábrica en la recepción de materia prima
                     observaciones:
                       type: string
-                    silos:
-                      type: array
-                      items:
-                        type: object
-                        properties:
-                          numeroSilo:
-                            type: string
-                            description: Identificador del silo
-                          cantidad:
-                            type: number
-                            format: double
-                            description: cantidad planificada para el silo
-                          unidad:
-                            type: string
-                            description: Unidad de la cantidad solicitada en el silo
+                      description: Observacaciones sobre la recepción.          
     PedidosPlanificados:
       type: object
       description: Objeto que se manda desde el ERP para adelantar la planificación de un pedido de pienso
@@ -1852,6 +1394,7 @@ components:
                             description: Unidad de la cantidad solicitada en el silo
     ExpedicionesPlanificadas:
       type: object
+      description: Objeto que se manda desde el ERP para adelantar los viajes de pienso
       required:
         - mensajeId
         - fechaCreacion
@@ -1887,14 +1430,21 @@ components:
                   <br> `B` - Baja
               codigoExterno:
                 type: string
+              estadoExpedición:
+                type: string
+                description: Estado de la expedicíon (lo informa fábrica (Pendiente, Expidiendo, Expedido))  
               fecha:
                 type: string
                 format: date-time
                 description: dia y hora que se preve la expedición
                 example: "2025-07-09T10:15+02:00"
-              matriculaRemolque:
+              codigoMatriculaVehiculo:
                 type: string
               matriculaVehiculo:
+                type: string
+              codigoMatriculaRemolque:
+                type: string
+              matriculaRemolque:
                 type: string
               códigoAgenciaTransporte:
                 type: string
@@ -2219,8 +1769,6 @@ components:
                 type: string
               observaciones:
                 type: string
-              codigoTransportista:
-                type: string
               email:
                 type: string
     MateriaPrima:
@@ -2456,8 +2004,6 @@ components:
                   caracter:
                     type: string
                     description: caracter de la fórmula
-                  densidadProducto:
-                    type: string
                   ingredientes:
                     type: array
                     items:
@@ -2473,8 +2019,6 @@ components:
                         descripcion:
                           type: string
                           description: descripción del producto
-                        presentacion:
-                          type: string
                         cantidad:
                           type: number
                           format: double
