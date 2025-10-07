@@ -699,13 +699,14 @@ components:
                 type: string
                 description: Lote que asigna el sistema de fábrica en la recepción de materia prima o producción de pienso
     
-    RootEnvelope:
+    EnvelopeProducciones:
       type: object
       required: [producciones]
+      additionalProperties: false
       properties:
         producciones:
           $ref: '#/components/schemas/Producciones'
-    
+
     Producciones:
       type: object
       required:
