@@ -29,67 +29,68 @@ paths:
             schema:
               $ref: "#/components/schemas/Recepciones"
             example:
-              mensajeId: "4d9a1c30-6a2e-4a6c-9f3b-6b12c3d4e5f6"
-              fechaCreacion: "2025-07-09T10:15+02:00"
-              origen: "VC Lleida"
               recepciones:
-                - idViaje: "VJ-2025-000123"
-                  codigoExterno: "ERP-REC-784512"
-                  estado: "C"
-                  matriculaVehiculo: "1234-ABC"
-                  matriculaRemolque: "5678-DEF"
-                  operadorTransporte: "OP-TRAN-07"
-                  agenciaTransporte: "AG-LOG-21"
-                  conductor: "COND-00987"
-                  nifConductor: "12345678Z"
-                  nombreConductor: "Carlos Martínez"
-                  fechaEntrada: "2025-07-09T08:30+02:00"
-                  pesoEntrada: 28450.75
-                  fechaSalida: "2025-07-09T11:10+02:00"
-                  pesoSalida: 14520.30
-                  lineas:
-                    - id: "L-001"
-                      producto: "ALM-00045"
-                      cantidadTeorica: 12000.0
-                      unidadCantidadTeorica: "kg"
-                      cantidadReal: 11850.5
-                      unidadCantidadReal: "kg"
-                      proveedor: "PRV-00321"
-                      aplicacion: "AC-2025-017"
-                      loteProveedor: "LP-789654"
-                      loteFabrica: "LF-20250709-01"
-                      fechaCaducidadLote: "2026-01-15T00:00+02:00"
-                      codigoMuestra: "QM-2025-001"
-                      referenciaProveedor: "ALB-PRV-556677"
-                      referenciaSistemaFabrica: "ALB-SF-998877"
-                      codigoRechazo: null
-                      observacionesAnomalia: "Sin incidencias"
-                      certificadoDesinfeccion: "CD-2025-0001"
-                      calidad:
-                        - codigoCalidad: 101
-                          valor: 8.7
-                        - codigoCalidad: 205
-                          valor: 12.3
-                    - id: "L-002"
-                      producto: "ALM-00078"
-                      cantidadTeorica: 7000.0
-                      unidadCantidadTeorica: "kg"
-                      cantidadReal: 6950.0
-                      unidadCantidadReal: "kg"
-                      proveedor: "PRV-00456"
-                      aplicacion: "AC-2025-018"
-                      loteProveedor: "LP-456123"
-                      loteFabrica: "LF-20250709-02"
-                      fechaCaducidadLote: "2025-12-31T00:00+02:00"
-                      codigoMuestra: "QM-2025-002"
-                      referenciaProveedor: "ALB-PRV-112233"
-                      referenciaSistemaFabrica: "ALB-SF-665544"
-                      codigoRechazo: null
-                      observacionesAnomalia: ""
-                      certificadoDesinfeccion: "CD-2025-0002"
-                      calidad:
-                        - codigoCalidad: 101
-                          valor: 9.1
+                mensajeId: "4d9a1c30-6a2e-4a6c-9f3b-6b12c3d4e5f6"
+                fechaCreacion: "2025-07-09T10:15+02:00"
+                origen: "VC Lleida"
+                recepciones:
+                  - idViaje: "VJ-2025-000123"
+                    codigoExterno: "ERP-REC-784512"
+                    estado: "C"
+                    matriculaVehiculo: "1234-ABC"
+                    matriculaRemolque: "5678-DEF"
+                    operadorTransporte: "OP-TRAN-07"
+                    agenciaTransporte: "AG-LOG-21"
+                    conductor: "COND-00987"
+                    nifConductor: "12345678Z"
+                    nombreConductor: "Carlos Martínez"
+                    fechaEntrada: "2025-07-09T08:30+02:00"
+                    pesoEntrada: 28450.75
+                    fechaSalida: "2025-07-09T11:10+02:00"
+                    pesoSalida: 14520.30
+                    lineas:
+                      - id: "L-001"
+                        producto: "ALM-00045"
+                        cantidadTeorica: 12000.0
+                        unidadCantidadTeorica: "kg"
+                        cantidadReal: 11850.5
+                        unidadCantidadReal: "kg"
+                        proveedor: "PRV-00321"
+                        aplicacion: "AC-2025-017"
+                        loteProveedor: "LP-789654"
+                        loteFabrica: "LF-20250709-01"
+                        fechaCaducidadLote: "2026-01-15T00:00+02:00"
+                        codigoMuestra: "QM-2025-001"
+                        referenciaProveedor: "ALB-PRV-556677"
+                        referenciaSistemaFabrica: "ALB-SF-998877"
+                        codigoRechazo: null
+                        observacionesAnomalia: "Sin incidencias"
+                        certificadoDesinfeccion: "CD-2025-0001"
+                        calidad:
+                          - codigoCalidad: 101
+                            valor: 8.7
+                          - codigoCalidad: 205
+                            valor: 12.3
+                      - id: "L-002"
+                        producto: "ALM-00078"
+                        cantidadTeorica: 7000.0
+                        unidadCantidadTeorica: "kg"
+                        cantidadReal: 6950.0
+                        unidadCantidadReal: "kg"
+                        proveedor: "PRV-00456"
+                        aplicacion: "AC-2025-018"
+                        loteProveedor: "LP-456123"
+                        loteFabrica: "LF-20250709-02"
+                        fechaCaducidadLote: "2025-12-31T00:00+02:00"
+                        codigoMuestra: "QM-2025-002"
+                        referenciaProveedor: "ALB-PRV-112233"
+                        referenciaSistemaFabrica: "ALB-SF-665544"
+                        codigoRechazo: null
+                        observacionesAnomalia: ""
+                        certificadoDesinfeccion: "CD-2025-0002"
+                        calidad:
+                          - codigoCalidad: 101
+                            valor: 9.1
       responses:
         '200':
           description: Recepción procesada correctamente
@@ -140,37 +141,38 @@ paths:
             schema:
               $ref: '#/components/schemas/Expediciones'
             example:
-              mensajeId: "8aa1e2b4-2a4b-4d29-9d56-112233445566"
-              fechaCreacion: "2025-07-09T10:15+02:00"
-              origen: "VC Lleida"
               expediciones:
-                - idViaje: "EXP-001"
-                  codigoExterno: "ERP-EXP-001"
-                  fechaPrevista: "2025-07-10T06:00+02:00"
-                  fechaRealizacion: "2025-07-10T06:30+02:00"
-                  matriculaRemolque: "9999-ZZZ"
-                  matriculaVehiculo: "8888-YYY"
-                  transportista: "TRANS-001"
-                  pesoEntrada: 12000.0
-                  fechaPesoEntrada: "2025-07-10T06:10+02:00"
-                  estado: "C"
-                  lineas:
-                    - producto: "PROD-001"
-                      cliente: "CLI-001"
-                      explotacion: "EXPLO-001"
-                      pedido: "PED-2025-0001"
-                      pedidoLinea: "1"
-                      fechaEntrega: "2025-07-10T12:00+02:00"
-                      fechaRealizacion: "2025-07-10T06:30+02:00"
-                      cantidades:
-                        - id: 101
-                          codigoLote: "L-PROD-0001"
-                          cantidad: 2500.0
-                          unidad: "kg"
-                        - id: 102
-                          codigoLote: "L-PROD-0002"
-                          cantidad: 500.0
-                          unidad: "kg"
+                mensajeId: "8aa1e2b4-2a4b-4d29-9d56-112233445566"
+                fechaCreacion: "2025-07-09T10:15+02:00"
+                origen: "VC Lleida"
+                expediciones:
+                  - idViaje: "EXP-001"
+                    codigoExterno: "ERP-EXP-001"
+                    fechaPrevista: "2025-07-10T06:00+02:00"
+                    fechaRealizacion: "2025-07-10T06:30+02:00"
+                    matriculaRemolque: "9999-ZZZ"
+                    matriculaVehiculo: "8888-YYY"
+                    transportista: "TRANS-001"
+                    pesoEntrada: 12000.0
+                    fechaPesoEntrada: "2025-07-10T06:10+02:00"
+                    estado: "C"
+                    lineas:
+                      - producto: "PROD-001"
+                        cliente: "CLI-001"
+                        explotacion: "EXPLO-001"
+                        pedido: "PED-2025-0001"
+                        pedidoLinea: "1"
+                        fechaEntrega: "2025-07-10T12:00+02:00"
+                        fechaRealizacion: "2025-07-10T06:30+02:00"
+                        cantidades:
+                          - id: 101
+                            codigoLote: "L-PROD-0001"
+                            cantidad: 2500.0
+                            unidad: "kg"
+                          - id: 102
+                            codigoLote: "L-PROD-0002"
+                            cantidad: 500.0
+                            unidad: "kg"
       responses:
         '200':
           description: Expediciones recibidas correctamente
@@ -215,22 +217,23 @@ paths:
             schema:
               $ref: '#/components/schemas/Regularizaciones'
             example:
-              mensajeId: "123e4567-e89b-12d3-a456-426614174000"
-              fechaCreacion: "2025-07-09T10:15+02:00"
-              origen: "VC Lleida"
               regularizaciones:
-                - id: 1
-                  producto: "MAT-001"
-                  cantidad: 100.5
-                  unidad: "kg"
-                  fecha: "2025-07-09T09:00+02:00"
-                  loteFabrica: "LF-001"
-                - id: 2
-                  producto: "PROD-001"
-                  cantidad: -50.0
-                  unidad: "kg"
-                  fecha: "2025-07-09T09:30+02:00"
-                  loteFabrica: "LF-PROD-001"
+                mensajeId: "123e4567-e89b-12d3-a456-426614174000"
+                fechaCreacion: "2025-07-09T10:15+02:00"
+                origen: "VC Lleida"
+                regularizaciones:
+                  - id: 1
+                    producto: "MAT-001"
+                    cantidad: 100.5
+                    unidad: "kg"
+                    fecha: "2025-07-09T09:00+02:00"
+                    loteFabrica: "LF-001"
+                  - id: 2
+                    producto: "PROD-001"
+                    cantidad: -50.0
+                    unidad: "kg"
+                    fecha: "2025-07-09T09:30+02:00"
+                    loteFabrica: "LF-PROD-001"
       responses:
         '200':
           description: regularizaciones recibidas correctamente
@@ -354,6 +357,13 @@ paths:
                     example: "Error interno del servidor"
 components:
   schemas:
+    EnvelopeRecepciones:
+      type: object
+      required: [recepciones]
+      additionalProperties: false
+      properties:
+        producciones:
+          $ref: '#/components/schemas/Recepciones'
     Recepciones:
       type: object
       required:
@@ -516,6 +526,14 @@ components:
                             type: number
                             format: double
                             description: Valor de calidad
+    
+    EnvelopeExpediciones:
+      type: object
+      required: [recepciones]
+      additionalProperties: false
+      properties:
+        expediciones:
+          $ref: '#/components/schemas/Expediciones'
     Expediciones:
       type: object
       required:
@@ -647,6 +665,13 @@ components:
                           unidad:
                             description: Unidad de la cantidad 
                             type: string  
+    EnvelopeRegularizaciones:
+      type: object
+      required: [recepciones]
+      additionalProperties: false
+      properties:
+        regularizaciones:
+          $ref: '#/components/schemas/Regularizaciones'
     Regularizaciones:
       type: object
       required:
