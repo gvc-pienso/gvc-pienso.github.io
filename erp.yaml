@@ -285,6 +285,7 @@ paths:
                 fabricaciones:
                   - fechaProduccion: "2025-07-09T10:15+02:00"
                     identificadorProduccion: "FAB-001"
+                    versionFormula: "20777"
                     movimientos:
                       consumidos:
                         - codigoProducto: "MAT-001"
