@@ -687,7 +687,7 @@ paths:
       summary: Consulta de contratos de compra
       description: Consulta por id pasado por parametro. El identificador codigoexterno usado anteriormente.
       parameters:
-        - name: codigoExterno
+        - name: id
           in: query
           description: Identificador del contrato de compra (codigoExterno del contrato de compra)
           required: true
@@ -1305,7 +1305,7 @@ components:
                     <br> `B` - Baja
               codigoExterno:
                 type: string
-                description: Codigo del pedido del ERP
+                description: Codigo del pedido (Nº de petición de pienso) del ERP
               fecha:
                 type: string
                 format: date
