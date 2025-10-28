@@ -293,20 +293,17 @@ paths:
                           unidad: "kg"
                           loteRecepcion: "L001-PRV"
                           loteFabrica: "LF-1001"
-                          identificadorProduccion: "FAB-001"
                         - codigoProducto: "MAT-002"
                           cantidad: 500.0
                           unidad: "kg"
                           loteRecepcion: "L002-PRV"
                           loteFabrica: "LF-1002"
-                          identificadorProduccion: "FAB-001"
                       producidos:
                         - codigoProducto: "PROD-001"
                           cantidad: 1450.5
                           unidad: "kg"
                           loteFabricacion: "LF-PROD-001"
                           fechaCaducidad: "2026-01-09T00:00+02:00"
-                          identificadorProduccion: "FAB-001"
                   - fechaProduccion: "2025-07-10T08:00+02:00"
                     identificadorProduccion: "FAB-002"
                     versionFormula: "20076"
@@ -317,15 +314,12 @@ paths:
                           unidad: "kg"
                           loteRecepcion: "L003-PRV"
                           loteFabrica: "LF-2001"
-                          identificadorProduccion: "FAB-002"
                       producidos:
                         - codigoProducto: "PROD-002"
                           cantidad: 790.0
                           unidad: "kg"
                           loteFabricacion: "LF-PROD-002"
-                          fechaCaducidad: "2026-01-10T00:00+02:00"
-                          identificadorProduccion: "FAB-002"                     
-            
+                          fechaCaducidad: "2026-01-10T00:00+02:00"                   
       responses:
         '200':
           description: Producciones recibidas correctamente
