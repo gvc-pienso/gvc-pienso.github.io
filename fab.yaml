@@ -1792,7 +1792,7 @@ components:
               nombre:
                 type: string
                 description: Nombre del artículo de mmpp
-              descripción:
+              descripcion:
                 type: string
                 description: Descripción del artículo de mmpp
           
