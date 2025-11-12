@@ -1971,73 +1971,70 @@ components:
           description: Origen de la llamada
           example: "D365"
         formulas:
-          type: object
+          type: array
           required:
             - codigoExternoFormula
             - version
-          properties:
-            formula:
-              type: array
-              items:
-                type: object
-                properties:
-                  codigoExternoFormula:
-                    type: string
-                    description: Codigo de la fórmula en el ERP
-                  version:
-                     type: string
-                     description: Versión de la fórmula
-                  caracter:
-                    type: string
-                    description: caracter de la fórmula
-                  ingredientes:
-                    type: array
-                    items:
-                      type: object
-                      required:
-                        - codigoExterno
-                        - cantidad
-                        - unidad
-                      properties:
-                        codigoExterno:
-                          type: string
-                          description: identificador del producto
-                        descripcion:
-                          type: string
-                          description: descripción del producto
-                        cantidad:
-                          type: number
-                          format: double
-                          description: cantidad a aplicar en la formula
-                        unidad:
-                          type: string
-                          description: unidad de la cantidad a aplicar en la formula
-                        cantidadPorSerie:
-                           type: number
-                           format: double
-                           description: cantidad por serie (viene definido por el BRILL)
-                        unidadCantidadPorSerie:
-                           type: string
-                           description: unidad de la cantidad por serie (viene definido por el BRILL)
-                        bloqueo:
-                          type: string
-                          description: >
-                            Puede tener los siguienes valores:
-                            <br> `S` - Bloqueado (o formulas de cantidades absolutas)
-                            <br> `N` - No Bloqueado
-                            <br> `A` - Acumulado (no entra a formar parte del 100 % de la composición)
-                        entorno:
-                          type: string 
-                          description: >
-                            Asignación del entorno al cual debe de ser incorporado el componente dentro del proceso de fabricación:
-                            <br> `2002` - Línea de transito
-                            <br> `2011` - Línea dosificación No Bloqueado
-                            <br> `2012` - Línea Molturación
-                            <br> `2013` - Línea granulación
-                            <br> `2014` - Línea envasado
-                            <br> `2015` - Línea extrusionado
-                            <br> `2016` - Línea preparación premezclas
-                            <br> `2017` - Línea migajador
+          items:
+            type: object
+            properties:
+              codigoExternoFormula:
+                type: string
+                description: Codigo de la fórmula en el ERP
+              version:
+                  type: string
+                  description: Versión de la fórmula
+              caracter:
+                type: string
+                description: caracter de la fórmula
+              ingredientes:
+                type: array
+                items:
+                  type: object
+                  required:
+                    - codigoExterno
+                    - cantidad
+                    - unidad
+                  properties:
+                    codigoExterno:
+                      type: string
+                      description: identificador del producto
+                    descripcion:
+                      type: string
+                      description: descripción del producto
+                    cantidad:
+                      type: number
+                      format: double
+                      description: cantidad a aplicar en la formula
+                    unidad:
+                      type: string
+                      description: unidad de la cantidad a aplicar en la formula
+                    cantidadPorSerie:
+                        type: number
+                        format: double
+                        description: cantidad por serie (viene definido por el BRILL)
+                    unidadCantidadPorSerie:
+                        type: string
+                        description: unidad de la cantidad por serie (viene definido por el BRILL)
+                    bloqueo:
+                      type: string
+                      description: >
+                        Puede tener los siguienes valores:
+                        <br> `S` - Bloqueado (o formulas de cantidades absolutas)
+                        <br> `N` - No Bloqueado
+                        <br> `A` - Acumulado (no entra a formar parte del 100 % de la composición)
+                    entorno:
+                      type: string 
+                      description: >
+                        Asignación del entorno al cual debe de ser incorporado el componente dentro del proceso de fabricación:
+                        <br> `2002` - Línea de transito
+                        <br> `2011` - Línea dosificación No Bloqueado
+                        <br> `2012` - Línea Molturación
+                        <br> `2013` - Línea granulación
+                        <br> `2014` - Línea envasado
+                        <br> `2015` - Línea extrusionado
+                        <br> `2016` - Línea preparación premezclas
+                        <br> `2017` - Línea migajador
     Producciones:
       type: object
       required:
