@@ -986,21 +986,19 @@ paths:
               schema:
                 type: object
                 properties:
-                  Response:
+                  response:
                     type: array
                     items:
                       type: object
                       properties:
-                        ResultResponse:
-                            type: string
-                            description: OK si se ha guardado correctamente
-                            example: 
-                              - OK
-                        MessageResponse:
-                            type: string
-                            description: mensaje de respuesta
-                            example: 
-                              - Fórmulas procesadas correctamente
+                        resultResponse:
+                          type: string
+                          description: OK si se ha guardado correctamente
+                          example: OK
+                        messageResponse:
+                          type: string
+                          description: mensaje de respuesta
+                          example: Fórmulas procesadas correctamente
         '400':
           description: Solicitud incorrecta
         '500':
