@@ -1974,19 +1974,20 @@ components:
           type: array
           required:
             - codigoExternoFormula
-            - version
+            - codigoExternoVersion
+            - codigoExternoCaracter
           items:
             type: object
             properties:
               codigoExternoFormula:
                 type: string
-                description: Codigo de la fórmula en el ERP
-              version:
-                  type: string
-                  description: Versión de la fórmula
-              caracter:
+                description: Codigo del artículo de la fórmula en el ERP
+              codigoExternoVersion:
                 type: string
-                description: caracter de la fórmula
+                description: Codigo de versión de la fórmula en el ERP  
+              codigoExternoCaracter:
+                type: string
+                description: caracter de la fórmula  en el ERP  
               ingredientes:
                 type: array
                 items:
