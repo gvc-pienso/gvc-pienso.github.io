@@ -1465,8 +1465,89 @@ components:
               pedidos:
                 type: array
                 items:
-                  $ref: '#/components/schemas/PedidosPlanificados'
-                      
+                  type: object
+                  properties:
+                    accion:
+                      type: string
+                      description: >
+                          Accion que se realiza:
+                          <br> `A` - Alta
+                          <br> `B` - Baja
+                    codigoExterno:
+                      type: string
+                      description: Codigo del pedido (Nº de petición de pienso) del ERP
+                    fecha:
+                      type: string
+                      format: date
+                      description: fecha de entrega del pedido
+                    cliente:
+                      type: string
+                      description: identificador del cliente del ERP
+                    nombreCliente:
+                      type: string
+                      description: nombre del cliente
+                    explotacionReferencia:
+                      type: string
+                      description: Código de la granja
+                    explotacionNombre:
+                      type: string
+                      description: Nombre de la granja
+                    direccionEntrega: 
+                      type: string
+                      description: Direccion donde realizar la entrega
+                    nombreGranjero:
+                      type: string
+                    telefonoExplotacion:
+                      type: string
+                    observaciones:
+                      type: string
+                    lineas:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          producto:
+                            type: string
+                            description: Identificador del producto
+                          cantidad:
+                            type: number
+                            format: double
+                            description: cantidad planificada
+                          unidad:
+                            type: string
+                            description: Unidad de la cantidad planificada
+                          recetaOficial:
+                            type: string
+                            description: Codigo receta oficial
+                          presentacion:
+                            type: string
+                          loteExplotacion:
+                            type: string
+                            description: Lote de la granja/crianza
+                          prioridad:
+                            type: string
+                          fechaEntrega:
+                            type: string
+                            format: date-time
+                            description: Fecha/hora de entrega planificada
+                            example: "2025-07-09T10:15+02:00"
+                          observaciones:
+                            type: string
+                          silos:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                numeroSilo:
+                                  type: string
+                                  description: Identificador del silo
+                                cantidad:
+                                  type: number
+                                  format: double
+                                  description: cantidad planificada para el silo
+                                unidad:
+                                  type: string
+                                  description: Unidad de la cantidad solicitada en el silo
     Clientes:
       type: object
       required:
