@@ -65,14 +65,15 @@ paths:
                       Resultado de servicio:
                       <br> `OK` - Resultado correcto
                       <br> `NOK` - Resultado incorrecto
+  /clientes/codigoExterno/{codigoExterno}:
     get:
       tags:
         - Agenda
       summary: Consulta de clientes
       description: Consulta por id pasado por parametro.
       parameters:
-        - name: id
-          in: query
+        - name: codigoExterno
+          in: path
           description: Identificador del cliente (codigoExterno del cliente)
           required: true
           schema:
