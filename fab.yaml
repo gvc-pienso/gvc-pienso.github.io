@@ -599,7 +599,7 @@ paths:
                     description: >
                       Resultado de servicio:
                       <br> `NOK` - Resultado incorrecto
-  /vehiculos//matriculaRemolque/{matriculaRemolque}:  
+  /vehiculos/matriculaRemolque/{matriculaRemolque}:  
     get:
       tags:
         - Vehículos
