@@ -154,14 +154,15 @@ paths:
                     description: >
                       Resultado de servicio:
                       <br> `NOK` - Resultado incorrecto
+  /proveedores/codigoExterno/{codigoExterno}:
     get:
       tags:
         - Agenda
       summary: Consulta de proveedores
       description: Consulta por id pasado por parametro.
       parameters:
-        - name: id
-          in: query
+        - name: codigoExterno
+          in: path
           description: Identificador del proveedor (codigoExterno del proveedor)
           required: true
           schema:
@@ -242,14 +243,15 @@ paths:
                     description: >
                       Resultado de servicio:
                       <br> `NOK` - Resultado incorrecto
+  /explotaciones/codigoExterno/{codigoExterno}:
     get:
       tags:
         - Agenda
       summary: Consulta de explotaciones
       description: Consulta por id pasado por parametro.
       parameters:
-        - name: id
-          in: query
+        - name: codigoExterno
+          in: path
           description: Identificador de la explotación (codigoExterno de la explotación)
           required: true
           schema:
@@ -330,14 +332,15 @@ paths:
                     description: >
                       Resultado de servicio:
                       <br> `NOK` - Resultado incorrecto
+  /transportistas/codigoExterno/{codigoExterno}:
     get:
       tags:
         - Agenda
       summary: Consulta de transportistas
       description: Consulta por id pasado por parametro.
       parameters:
-        - name: id
-          in: query
+        - name: codigoExterno
+          in: path
           description: Identificador del transportista (codigoExterno del transportista)
           required: true
           schema:
@@ -418,14 +421,15 @@ paths:
                     description: >
                       Resultado de servicio:
                       <br> `NOK` - Resultado incorrecto
+  /conductores/codigoExterno/{codigoExterno}:
     get:
       tags:
         - Agenda
       summary: Consulta de conductores
       description: Consulta por id pasado por parametro.
       parameters:
-        - name: id
-          in: query
+        - name: codigoExterno
+          in: path
           description: Identificador del conductor (codigoExterno del conductor)
           required: true
           schema:
@@ -506,14 +510,15 @@ paths:
                     description: >
                       Resultado de servicio:
                       <br> `NOK` - Resultado incorrecto
+  /materiaPrima/codigoExterno/{codigoExterno}:
     get:
       tags:
         - Materia Prima
       summary: Consulta de materia prima
       description: Consulta por id pasado por parametro. 
       parameters:
-        - name: id
-          in: query
+        - name: codigoExterno
+          in: path
           description: Identificador de la materia prima (codigoExterno de la materia prima)
           required: true
           schema:
@@ -594,14 +599,15 @@ paths:
                     description: >
                       Resultado de servicio:
                       <br> `NOK` - Resultado incorrecto
+  /vehiculos//matriculaRemolque/{matriculaRemolque}:  
     get:
       tags:
         - Vehículos
       summary: Consulta de materia prima
       description: Consulta por id pasado por parametro 
       parameters:
-        - name: MatriculaRemolque
-          in: query
+        - name: matriculaRemolque
+          in: path
           description: matricula remolque del vehículo (matriculaRemolque del vehículo)
           required: true
           schema:
