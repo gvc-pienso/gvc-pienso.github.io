@@ -599,7 +599,7 @@ paths:
                     description: >
                       Resultado de servicio:
                       <br> `NOK` - Resultado incorrecto
-  /vehiculos/matriculaRemolque/{matriculaRemolque}:  
+  /vehiculos//matriculaRemolque/{matriculaRemolque}:  
     get:
       tags:
         - Vehículos
@@ -1988,66 +1988,23 @@ components:
               anchuraCamion:
                 type: number
                 format: double
-              capacidad1:
-                type: number
-                format: double
-              capacidad2:
-                type: number
-                format: double
-              capacidad3:
-                type: number
-                format: double
-              capacidad4:
-                type: number
-                format: double
-              capacidad5:
-                type: number
-                format: double
-              capacidad6:
-                type: number
-                format: double
-              capacidad7:
-                type: number
-                format: double
-              capacidad8:
-                type: number
-                format: double
-              capacidad9:
-                type: number
-                format: double
-              capacidad10:
-                type: number
-                format: double
-              longitud1:
-                type: number
-                format: double
-              longitud2:
-                type: number
-                format: double
-              longitud3:
-                type: number
-                format: double
-              longitud4:
-                type: number
-                format: double
-              longitud5:
-                type: number
-                format: double
-              Longitud6:
-                type: number
-                format: double
-              longitud7:
-                type: number
-                format: double
-              longitud8:
-                type: number
-                format: double
-              Longitud9:
-                type: number
-                format: double
-              longitud10:
-                type: number
-                format: double
+
+              cajones:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    numeroCajon:
+                      type: integer
+                      description: Identificador del cajon
+                    capacidad:
+                      type: number
+                      format: double
+                      description: capacidad del cajon
+                    longitud:
+                      type: number
+                      format: double
+                      description: longitud del cajon
     Formulas:
       type: object
       required:
