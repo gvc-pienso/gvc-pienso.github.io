@@ -10,7 +10,7 @@ servers:
 tags:
   - name: Recepciones
     description: Servicios de recepciones de materia prima
-  - name: Expediciones
+  - name: type: number
     description: Servicios de expediciones de pienso
   - name: Regularizaciones
     description: Servicios de Regularizaciones
@@ -154,6 +154,7 @@ paths:
                     matriculaVehiculo: "8888-YYY"
                     transportista: "TRANS-001"
                     pesoEntrada: 12000.0
+                    unidadPesoEntrada: kg,
                     fechaPesoEntrada: "2025-07-10T06:10+02:00"
                     estado: "C"
                     lineas:
@@ -592,6 +593,9 @@ components:
                 type: number
                 format: double
                 description: Peso entrada del vehículo
+              unidadPesoEntrada:
+                description: Unidad de la cantidad de peso entrada.
+                type: string    
               fechaPesoEntrada:
                 type: string
                 format: date-time
