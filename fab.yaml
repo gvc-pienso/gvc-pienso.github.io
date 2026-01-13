@@ -2296,82 +2296,96 @@ components:
                   - otros
                 properties:
                   fabricante:
-                    type: object
                     description: Sección Fabricante.
-                    properties:
-                      linea:
-                        type: number
-                        format: int
-                        description: Identificador de la línea.
-                      frase:
-                        type: string
-                        description: Frase de la etiqueta.
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        linea:
+                          type: number
+                          format: int
+                          description: Identificador de la línea.
+                        frase:
+                          type: string
+                          description: Frase de la etiqueta.
                   producto:
-                    type: object
                     description: Sección Producto.
-                    properties:
-                      linea:
-                        type: number
-                        format: int
-                        description: Identificador de la línea.
-                      frase:
-                        type: string
-                        description: Frase de la etiqueta.
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        linea:
+                          type: number
+                          format: int
+                          description: Identificador de la línea.
+                        frase:
+                          type: string
+                          description: Frase de la etiqueta.
                   componentes:
-                    type: object
                     description: Sección Componentes analíticos.
-                    properties:
-                      linea:
-                        type: number
-                        format: int
-                        description: Identificador de la línea.
-                      frase:
-                        type: string
-                        description: Frase de la etiqueta.
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        linea:
+                          type: number
+                          format: int
+                          description: Identificador de la línea.
+                        frase:
+                          type: string
+                          description: Frase de la etiqueta.
                   composicion:
-                    type: object
                     description: Sección Composición.
-                    properties:
-                      linea:
-                        type: number
-                        format: int
-                        description: Identificador de la línea.
-                      frase:
-                        type: string
-                        description: Frase de la etiqueta.
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        linea:
+                          type: number
+                          format: int
+                          description: Identificador de la línea.
+                        frase:
+                          type: string
+                          description: Frase de la etiqueta.
                   aditivos:
-                    type: object
                     description: Sección Aditivos.
-                    properties:
-                      linea:
-                        type: number
-                        format: int
-                        description: Identificador de la línea.
-                      frase:
-                        type: string
-                        description: Frase de la etiqueta.
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        linea:
+                          type: number
+                          format: int
+                          description: Identificador de la línea.
+                        frase:
+                          type: string
+                          description: Frase de la etiqueta.
                   aditivosPienso:
-                    type: object
                     description: Sección Aditivos aportados por el propio pienso.
-                    properties:
-                      linea:
-                        type: number
-                        format: int
-                        description: Identificador de la línea.
-                      frase:
-                        type: string
-                        description: Frase de la etiqueta.
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        linea:
+                          type: number
+                          format: int
+                          description: Identificador de la línea.
+                        frase:
+                          type: string
+                          description: Frase de la etiqueta.
                   otros:
-                    type: object
                     description: Sección Otros.
-                    properties:
-                      linea:
-                        type: number
-                        format: int
-                        description: Identificador de la línea.
-                      frase:
-                        type: string
-                        description: Frase de la etiqueta.
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        linea:
+                          type: number
+                          format: int
+                          description: Identificador de la línea.
+                        frase:
+                          type: string
+                          description: Frase de la etiqueta.
   securitySchemes:
     oauth2:
       type: oauth2
