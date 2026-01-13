@@ -10,7 +10,7 @@ servers:
 tags:
   - name: Recepciones
     description: Servicios de recepciones de materia prima
-  - name: type: number
+  - name: Expediciones
     description: Servicios de expediciones de pienso
   - name: Regularizaciones
     description: Servicios de Regularizaciones
