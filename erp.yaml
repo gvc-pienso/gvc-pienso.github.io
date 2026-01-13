@@ -154,7 +154,7 @@ paths:
                     matriculaVehiculo: "8888-YYY"
                     transportista: "TRANS-001"
                     pesoEntrada: 12000.0
-                    unidadPesoEntrada: kg,
+                    unidadPesoEntrada: "Kg"
                     fechaPesoEntrada: "2025-07-10T06:10+02:00"
                     estado: "C"
                     lineas:
