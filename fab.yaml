@@ -2284,108 +2284,21 @@ components:
               codigoExternoFormula:
                 type: string
                 description: Codigo del artículo de la fórmula en el ERP
-              secciones:
-                type: object
-                required:
-                  - fabricante
-                  - producto
-                  - componentes
-                  - composicion
-                  - aditivos
-                  - aditivosPienso
-                  - otros
-                properties:
-                  fabricante:
-                    description: Sección Fabricante.
-                    type: array
-                    items:
-                      type: object
-                      properties:
-                        linea:
-                          type: number
-                          format: int
-                          description: Identificador de la línea.
-                        frase:
-                          type: string
-                          description: Frase de la etiqueta.
-                  producto:
-                    description: Sección Producto.
-                    type: array
-                    items:
-                      type: object
-                      properties:
-                        linea:
-                          type: number
-                          format: int
-                          description: Identificador de la línea.
-                        frase:
-                          type: string
-                          description: Frase de la etiqueta.
-                  componentes:
-                    description: Sección Componentes analíticos.
-                    type: array
-                    items:
-                      type: object
-                      properties:
-                        linea:
-                          type: number
-                          format: int
-                          description: Identificador de la línea.
-                        frase:
-                          type: string
-                          description: Frase de la etiqueta.
-                  composicion:
-                    description: Sección Composición.
-                    type: array
-                    items:
-                      type: object
-                      properties:
-                        linea:
-                          type: number
-                          format: int
-                          description: Identificador de la línea.
-                        frase:
-                          type: string
-                          description: Frase de la etiqueta.
-                  aditivos:
-                    description: Sección Aditivos.
-                    type: array
-                    items:
-                      type: object
-                      properties:
-                        linea:
-                          type: number
-                          format: int
-                          description: Identificador de la línea.
-                        frase:
-                          type: string
-                          description: Frase de la etiqueta.
-                  aditivosPienso:
-                    description: Sección Aditivos aportados por el propio pienso.
-                    type: array
-                    items:
-                      type: object
-                      properties:
-                        linea:
-                          type: number
-                          format: int
-                          description: Identificador de la línea.
-                        frase:
-                          type: string
-                          description: Frase de la etiqueta.
-                  otros:
-                    description: Sección Otros.
-                    type: array
-                    items:
-                      type: object
-                      properties:
-                        linea:
-                          type: number
-                          format: int
-                          description: Identificador de la línea.
-                        frase:
-                          type: string
-                          description: Frase de la etiqueta.
+              lineas:
+                type: array
+                items:
+                  type: object
+                  properties:
+                     linea:
+                      type: number
+                      format: int
+                      description: Identificador de la línea.
+                    seccion:
+                      type: string
+                      description: Seccion a lo que corresponde
+                    frase:
+                      type: string
+                      description: Frase de la etiqueta.
   securitySchemes:
     oauth2:
       type: oauth2
