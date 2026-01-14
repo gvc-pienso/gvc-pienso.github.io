@@ -2289,7 +2289,7 @@ components:
                 items:
                   type: object
                   properties:
-                     linea:
+                    linea:
                       type: number
                       format: int
                       description: Identificador de la línea.
