@@ -1302,7 +1302,7 @@ components:
                 description: identificador del remolque en el ERP
               matriculaRemolque:
                 type: string
-              códigoAgenciaTransporte:
+              codigoAgenciaTransporte:
                 type: string
                 description: Código de la empresa intermediaria comercial del viaje
               nombreAgenciaTransporte:
@@ -1533,7 +1533,7 @@ components:
                 type: string
               matriculaRemolque:
                 type: string
-              códigoAgenciaTransporte:
+              codigoAgenciaTransporte:
                 type: string
                 description: Código de la empresa intermediaria comercial del viaje
               nombreAgenciaTransporte:
