@@ -586,6 +586,15 @@ components:
               matriculaVehiculo:
                 type: string
                 description: matrícula del vehículo
+              conductor:
+                type: string
+                description: identificador interno del conductor
+              nifConductor:
+                type: string
+                description: nif del conductor
+              nombreConductor:
+                type: string
+                description: Nombre del conductor
               transportista:
                 type: string
                 description: Codigo transportista en el erp
