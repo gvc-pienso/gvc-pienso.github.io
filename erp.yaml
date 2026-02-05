@@ -155,7 +155,8 @@ paths:
                     nombreConductor: "Fernando Sanchez"
                     matriculaRemolque: "9999-ZZZ"
                     matriculaVehiculo: "8888-YYY"
-                    transportista: "TRANS-001"
+                    operadorTransporte: "OP-TRAN-07",
+                    agenciaTransporte: "AG-LOG-21",
                     pesoEntrada: 12000.0
                     unidadPesoEntrada: "Kg"
                     fechaPesoEntrada: "2025-07-10T06:10+02:00"
@@ -598,9 +599,12 @@ components:
               nombreConductor:
                 type: string
                 description: Nombre del conductor
-              transportista:
+              operadorTransporte:
                 type: string
-                description: Codigo transportista en el erp
+                description: Codigo operador transportista en el erp
+              agenciaTransporte:
+                type: string
+                description: Codigo agencia transportista en el erp
               pesoEntrada:
                 type: number
                 format: double
