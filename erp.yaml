@@ -1,12 +1,16 @@
-openapi: 3.0.1
+openapi: 3.2.0
+jsonSchemaDialect: https://spec.openapis.org/oas/3.1/dialect/base
 info:
   title: API Servicios ERP para sistemas de fábrica
-  description: Detalle de los servicios proporcionados por el software del ERP que son llamadas desde sistemas externos como sistemas de fábrica
-   para guardar información en el ERP. También se ofrecen servicios de consulta para poder consultar desde sistemas externos información de fábrica
-   almacenada en el ERP.
+  description: |
+    Detalle de los servicios proporcionados por el software del ERP que son llamadas desde sistemas externos como sistemas de fábrica
+    para guardar información en el ERP. También se ofrecen servicios de consulta para poder consultar desde sistemas externos información de fábrica
+    almacenada en el ERP.
   version: 1.0.0
+
 servers:
   - url: https://server.erp.com
+
 tags:
   - name: Recepciones
     description: Servicios de recepciones de materia prima
@@ -16,11 +20,11 @@ tags:
     description: Servicios de Regularizaciones
   - name: Producciones
     description: Servicios de Producciones
+
 paths:
   /recepciones:
     post:
-      tags:
-        - Recepciones
+      tags: [Recepciones]
       summary: Crear o registrar recepciones de materia prima
       requestBody:
         required: true
@@ -92,7 +96,7 @@ paths:
                           - codigoCalidad: 101
                             valor: 9.1
       responses:
-        '200':
+        "200":
           description: Recepción procesada correctamente
           content:
             application/json:
@@ -100,16 +104,18 @@ paths:
                 type: object
                 properties:
                   message:
-                    type: string
-                    example: 
+                    type: array
+                    items:
+                      type: string
+                    example:
                       - Se ha guardado correctamente.
                   code:
                     type: string
-                    description: >
+                    description: |
                       Resultado de servicio:
-                      <br> `OK` - Resultado correcto
-                      <br> `NOK` - Resultado incorrecto
-        '400':
+                      OK - Resultado correcto
+                      NOK - Resultado incorrecto
+        "400":
           description: Solicitud incorrecta (errores de validación o formato)
           content:
             application/json:
@@ -119,7 +125,7 @@ paths:
                   error:
                     type: string
                     example: "Solicitud incorrecta (errores de validación o formato)"
-        '500':
+        "500":
           description: Error interno del servidor
           content:
             application/json:
@@ -128,18 +134,18 @@ paths:
                 properties:
                   error:
                     type: string
-                    example: "Error interno del servidor"   
+                    example: "Error interno del servidor"
+
   /expediciones:
     post:
-      tags:
-        - Expediciones
+      tags: [Expediciones]
       summary: Obtener en el erp expediciones de pienso realizardas desde fábrica
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Expediciones'
+              $ref: "#/components/schemas/Expediciones"
             example:
               expediciones:
                 mensajeId: "8aa1e2b4-2a4b-4d29-9d56-112233445566"
@@ -179,7 +185,7 @@ paths:
                             cantidad: 500.0
                             unidad: "kg"
       responses:
-        '200':
+        "200":
           description: Expediciones recibidas correctamente
           content:
             application/json:
@@ -187,10 +193,12 @@ paths:
                 type: object
                 properties:
                   message:
-                    type: string
-                    example: 
+                    type: array
+                    items:
+                      type: string
+                    example:
                       - Expediciones procesadas correctamente
-        '400':
+        "400":
           description: Solicitud incorrecta (errores de validación o formato)
           content:
             application/json:
@@ -200,7 +208,7 @@ paths:
                   error:
                     type: string
                     example: "Solicitud incorrecta (errores de validación o formato)"
-        '500':
+        "500":
           description: Error interno del servidor
           content:
             application/json:
@@ -210,17 +218,17 @@ paths:
                   error:
                     type: string
                     example: "Error interno del servidor"
+
   /regularizaciones:
     post:
-      tags:
-        - Regularizaciones
+      tags: [Regularizaciones]
       summary: guardar en el erp regularizaciones de pienso o materia prima realizardas desde fábrica
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Regularizaciones'
+              $ref: "#/components/schemas/Regularizaciones"
             example:
               regularizaciones:
                 mensajeId: "123e4567-e89b-12d3-a456-426614174000"
@@ -240,7 +248,7 @@ paths:
                     fecha: "2025-07-09T09:30+02:00"
                     loteFabrica: "LF-PROD-001"
       responses:
-        '200':
+        "200":
           description: regularizaciones recibidas correctamente
           content:
             application/json:
@@ -248,10 +256,12 @@ paths:
                 type: object
                 properties:
                   message:
-                    type: string
-                    example: 
+                    type: array
+                    items:
+                      type: string
+                    example:
                       - Regularizaciones procesadas correctamente
-        '400':
+        "400":
           description: Solicitud incorrecta (errores de validación o formato)
           content:
             application/json:
@@ -261,7 +271,7 @@ paths:
                   error:
                     type: string
                     example: "Solicitud incorrecta (errores de validación o formato)"
-        '500':
+        "500":
           description: Error interno del servidor
           content:
             application/json:
@@ -271,18 +281,18 @@ paths:
                   error:
                     type: string
                     example: "Error interno del servidor"
+
   /producciones:
     post:
-      tags:
-        - Producciones
+      tags: [Producciones]
       summary: guardar en el erp producciones (con sus consumos) de pienso realizadas desde fábrica
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Producciones'
-            example:   # 👈 Ejemplo completo para Example Value
+              $ref: "#/components/schemas/Producciones"
+            example:
               producciones:
                 mensajeId: "550e8400-e29b-41d4-a716-446655440000"
                 fechaCreacion: "2025-07-09T10:15+02:00"
@@ -294,17 +304,20 @@ paths:
                     movimientos:
                       consumidos:
                         - codigoProducto: "MAT-001"
+                          identificadorProduccion: "FAB-001"
                           cantidad: 1000.5
                           unidad: "kg"
                           loteRecepcion: "L001-PRV"
                           loteFabrica: "LF-1001"
                         - codigoProducto: "MAT-002"
+                          identificadorProduccion: "FAB-001"
                           cantidad: 500.0
                           unidad: "kg"
                           loteRecepcion: "L002-PRV"
                           loteFabrica: "LF-1002"
                       producidos:
                         - codigoProducto: "PROD-001"
+                          identificadorProduccion: "FAB-001"
                           cantidad: 1450.5
                           unidad: "kg"
                           loteFabricacion: "LF-PROD-001"
@@ -315,18 +328,20 @@ paths:
                     movimientos:
                       consumidos:
                         - codigoProducto: "MAT-003"
+                          identificadorProduccion: "FAB-002"
                           cantidad: 800.0
                           unidad: "kg"
                           loteRecepcion: "L003-PRV"
                           loteFabrica: "LF-2001"
                       producidos:
                         - codigoProducto: "PROD-002"
+                          identificadorProduccion: "FAB-002"
                           cantidad: 790.0
                           unidad: "kg"
                           loteFabricacion: "LF-PROD-002"
-                          fechaCaducidad: "2026-01-10T00:00+02:00"                   
+                          fechaCaducidad: "2026-01-10T00:00+02:00"
       responses:
-        '200':
+        "200":
           description: Producciones recibidas correctamente
           content:
             application/json:
@@ -336,7 +351,7 @@ paths:
                   message:
                     type: string
                     example: "Producciones procesadas correctamente"
-        '400':
+        "400":
           description: Solicitud incorrecta (errores de validación o formato)
           content:
             application/json:
@@ -346,7 +361,7 @@ paths:
                   error:
                     type: string
                     example: "Solicitud incorrecta (errores de validación o formato)"
-        '500':
+        "500":
           description: Error interno del servidor
           content:
             application/json:
@@ -356,6 +371,7 @@ paths:
                   error:
                     type: string
                     example: "Error interno del servidor"
+
 components:
   schemas:
     EnvelopeRecepciones:
@@ -363,15 +379,12 @@ components:
       required: [recepciones]
       additionalProperties: false
       properties:
-        producciones:
-          $ref: '#/components/schemas/Recepciones'
+        recepciones:
+          $ref: "#/components/schemas/Recepciones"
+
     Recepciones:
       type: object
-      required:
-        - mensajeId
-        - fechaCreacion
-        - origen
-        - recepciones
+      required: [mensajeId, fechaCreacion, origen, recepciones]
       properties:
         mensajeId:
           type: string
@@ -390,13 +403,7 @@ components:
           type: array
           items:
             type: object
-            required:
-              - idViaje
-              - codigoExterno
-              - estado
-              - matriculaRemolque
-              - fechaEntrada
-              - lineas
+            required: [idViaje, codigoExterno, estado, matriculaRemolque, fechaEntrada, lineas]
             properties:
               idViaje:
                 type: string
@@ -406,10 +413,10 @@ components:
                 description: Identificador de la recepción del ERP (referencia transportista)
               estado:
                 type: string
-                description: >
-                 Estado de la recepcion:
-                  <br> `R` - Recepción rechazada
-                  <br> `C` - Recepción realizada
+                description: |
+                  Estado de la recepcion:
+                  R - Recepción rechazada
+                  C - Recepción realizada
               matriculaVehiculo:
                 type: string
               matriculaRemolque:
@@ -454,11 +461,7 @@ components:
                 type: array
                 items:
                   type: object
-                  required:
-                    - id
-                    - producto
-                    - cantidadTeorica
-                    - cantidadReal
+                  required: [id, producto, cantidadTeorica, cantidadReal]
                   properties:
                     id:
                       type: integer
@@ -471,15 +474,15 @@ components:
                       format: double
                       description: Cantidad teorica en la recepción. Peso en origen
                     unidadCantidadTeorica:
+                      type: string
                       description: Unidad de la cantidad teorica
-                      type: string  
                     cantidadReal:
                       type: number
                       format: double
                       description: Cantidad real de la recepción que ha entrado en el sistema
                     unidadCantidadReal:
+                      type: string
                       description: Unidad de la cantidad real
-                      type: string  
                     proveedor:
                       type: string
                       description: Código del proveedor.
@@ -527,21 +530,18 @@ components:
                             type: number
                             format: double
                             description: Valor de calidad
-    
+
     EnvelopeExpediciones:
       type: object
-      required: [recepciones]
+      required: [expediciones]
       additionalProperties: false
       properties:
         expediciones:
-          $ref: '#/components/schemas/Expediciones'
+          $ref: "#/components/schemas/Expediciones"
+
     Expediciones:
       type: object
-      required:
-        - mensajeId
-        - fechaCreacion
-        - origen
-        - expediciones
+      required: [mensajeId, fechaCreacion, origen, expediciones]
       properties:
         mensajeId:
           type: string
@@ -560,13 +560,7 @@ components:
           type: array
           items:
             type: object
-            required:
-              - idViaje
-              - codigoExterno
-              - fechaRealizacion
-              - matriculaRemolque
-              - estado
-              - lineas
+            required: [idViaje, codigoExterno, fechaRealizacion, matriculaRemolque, estado, lineas]
             properties:
               idViaje:
                 type: string
@@ -610,8 +604,8 @@ components:
                 format: double
                 description: Peso entrada del vehículo
               unidadPesoEntrada:
+                type: string
                 description: Unidad de la cantidad de peso entrada.
-                type: string    
               fechaPesoEntrada:
                 type: string
                 format: date-time
@@ -619,20 +613,18 @@ components:
                 example: "2025-07-09T10:15+02:00"
               estado:
                 type: string
-                description: >
-                    El estado de la expedición:
-                    <br> `E` - Expedición en edición
-                    <br> `P` - Expedición pendiente de expedir
-                    <br> `T` - Expedición en tránsito (Pendiente de la confirmación del camionero de la entrega)
-                    <br> `C` - Expedición cerrada
-                    <br> `R` - Expedición rechazar
+                description: |
+                  El estado de la expedición:
+                  E - Expedición en edición
+                  P - Expedición pendiente de expedir
+                  T - Expedición en tránsito (Pendiente de la confirmación del camionero de la entrega)
+                  C - Expedición cerrada
+                  R - Expedición rechazar
               lineas:
                 type: array
                 items:
                   type: object
-                  required:
-                    - producto
-                    - cantidades
+                  required: [producto, cantidades]
                   properties:
                     producto:
                       type: string
@@ -663,10 +655,7 @@ components:
                       type: array
                       items:
                         type: object
-                        required:
-                          - id
-                          - cantidad
-                          - unidad
+                        required: [id, cantidad, unidad]
                         properties:
                           id:
                             type: integer
@@ -679,22 +668,20 @@ components:
                             format: double
                             description: Cantidad del lote
                           unidad:
-                            description: Unidad de la cantidad 
-                            type: string  
+                            type: string
+                            description: Unidad de la cantidad
+
     EnvelopeRegularizaciones:
       type: object
-      required: [recepciones]
+      required: [regularizaciones]
       additionalProperties: false
       properties:
         regularizaciones:
-          $ref: '#/components/schemas/Regularizaciones'
+          $ref: "#/components/schemas/Regularizaciones"
+
     Regularizaciones:
       type: object
-      required:
-        - mensajeId
-        - fechaCreacion
-        - origen
-        - regularizaciones
+      required: [mensajeId, fechaCreacion, origen, regularizaciones]
       properties:
         mensajeId:
           type: string
@@ -712,11 +699,7 @@ components:
           type: array
           items:
             type: object
-            required:
-              - id
-              - producto
-              - cantidad
-              - unidad
+            required: [id, producto, cantidad, unidad]
             properties:
               id:
                 type: integer
@@ -727,7 +710,7 @@ components:
               cantidad:
                 type: number
                 format: double
-                description: Cantidad 
+                description: Cantidad
               unidad:
                 type: string
                 description: Unida de la cantidad
@@ -739,22 +722,18 @@ components:
               loteFabrica:
                 type: string
                 description: Lote que asigna el sistema de fábrica en la recepción de materia prima o producción de pienso
-    
+
     EnvelopeProducciones:
       type: object
       required: [producciones]
       additionalProperties: false
       properties:
         producciones:
-          $ref: '#/components/schemas/Producciones'
+          $ref: "#/components/schemas/Producciones"
 
     Producciones:
       type: object
-      required:
-        - mensajeId
-        - fechaCreacion
-        - origen
-        - fabricaciones
+      required: [mensajeId, fechaCreacion, origen, fabricaciones]
       properties:
         mensajeId:
           type: string
@@ -772,9 +751,7 @@ components:
           type: array
           items:
             type: object
-            required:
-              - fechaProduccion
-              - identificadorProduccion
+            required: [fechaProduccion, identificadorProduccion]
             properties:
               fechaProduccion:
                 type: string
@@ -794,15 +771,14 @@ components:
                     type: array
                     items:
                       type: object
-                      required:
-                        - codigoProducto
-                        - identificadorProduccion
-                        - cantidad
-                        - unidad
+                      required: [codigoProducto, identificadorProduccion, cantidad, unidad]
                       properties:
                         codigoProducto:
                           type: string
-                          description: Codigo del producto (consumido)                           
+                          description: Codigo del producto (consumido)
+                        identificadorProduccion:
+                          type: string
+                          description: Identificador de producción (vincula el movimiento a la fabricación)
                         cantidad:
                           type: number
                           format: double
@@ -814,21 +790,20 @@ components:
                           type: string
                           description: Lote del proveedor de materia prima
                         loteFabrica:
-                          description: Lote que asigna el sistema de fábrica en la recepcion de materia prima
                           type: string
+                          description: Lote que asigna el sistema de fábrica en la recepcion de materia prima
                   producidos:
                     type: array
                     items:
                       type: object
-                      required:
-                        - codigoProducto
-                        - identificadorProduccion
-                        - cantidad
-                        - unidad
+                      required: [codigoProducto, identificadorProduccion, cantidad, unidad]
                       properties:
                         codigoProducto:
                           type: string
                           description: Codigo del producto (producido)
+                        identificadorProduccion:
+                          type: string
+                          description: Identificador de producción (vincula el movimiento a la fabricación)
                         cantidad:
                           type: number
                           format: double
@@ -844,6 +819,7 @@ components:
                           format: date-time
                           description: Fecha de caducidad de Lote que asigna el sistema de fábrica en la fabricación de pienso
                           example: "2025-07-09T10:15+02:00"
+
   securitySchemes:
     oauth2:
       type: oauth2
@@ -851,9 +827,10 @@ components:
         clientCredentials:
           tokenUrl: https://login.microsoftonline.com/vallcompanys.es/oauth2/token
           scopes:
-            "lectura": Permiso de escritura
-            "escritura": Permiso de lectura
+            lectura: Permiso de escritura
+            escritura: Permiso de lectura
+
 security:
   - oauth2:
       - lectura
-      - escritura       
+      - escritura
