@@ -1280,7 +1280,6 @@ components:
               - accion
               - codigoExterno
               - fechaEntrada
-              - matriculaRemolque
               - lineas
             properties:
               accion:
