@@ -49,7 +49,7 @@ paths:
                     fechaSalida: "2025-07-09T11:10+02:00"
                     pesoSalida: 14520.30
                     lineas:
-                      - id: "L-001"
+                      - id: "954"
                         producto: "ALM-00045"
                         cantidadTeorica: 12000.0
                         unidadCantidadTeorica: "kg"
@@ -461,7 +461,7 @@ components:
                     - cantidadReal
                   properties:
                     id:
-                      type: string
+                      type: integer
                       description: Identificador de la linea
                     producto:
                       type: string
