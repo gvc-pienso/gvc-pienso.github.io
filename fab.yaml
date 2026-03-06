@@ -2023,8 +2023,18 @@ components:
               identificadorRfidVehiculo:
                 type: string
                 description: Identificador RFID del vehículo (para las tarjetas)
+              matriculaVehiculo:
+                type: string
+                description: matricula del vehiculo
               matriculaRemolque:
                 type: string
+                description: matricula del remolque asociado a la matricula
+              codigoAgenciaTransporte:
+                type: string
+                description: Código de la empresa intermediaria comercial del viaje
+              codigoOperadorTransporte:
+                type: string
+                description: Código de la empresa que realiza el viaje.                
               vehiculoRecepciones:
                 type: string
                 description: >
@@ -2046,9 +2056,6 @@ components:
               nombreConductor:
                 type: string
                 description: Nombre del conductor
-              transportista:
-                type: string
-                description: Identificador del transportista.
               pesoMaximo:
                 type: number
                 format: double
