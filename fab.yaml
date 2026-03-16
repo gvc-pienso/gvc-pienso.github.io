@@ -2039,14 +2039,14 @@ components:
                 type: string
                 description: >
                   Puede tener los siguienes valores:
-                  <br> `S` - Sí
-                  <br> `N` - No
+                  <br> `1` - Sí
+                  <br> `0` - No
               vehiculoExpediciones:
                 type: string
                 description: >
                   Puede tener los siguienes valores:
-                  <br> `S` - Sí
-                  <br> `N` - No
+                  <br> `1` - Sí
+                  <br> `0` - No
               codigoConductor:
                 type: string
                 description: Identificador en el ERP del conductor.
