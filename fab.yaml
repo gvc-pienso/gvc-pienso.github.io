@@ -2004,7 +2004,7 @@ components:
             type: object
             required:
               - accion
-              - matriculaRemolque
+              - matricula
               - tipoVehiculo
             properties:
               accion:
@@ -2023,7 +2023,7 @@ components:
               identificadorRfidVehiculo:
                 type: string
                 description: Identificador RFID del vehículo (para las tarjetas)
-              matriculaVehiculo:
+              matricula:
                 type: string
                 description: matricula del vehiculo
               codigoAgenciaTransporte:
