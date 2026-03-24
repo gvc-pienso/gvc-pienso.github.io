@@ -2026,9 +2026,6 @@ components:
               matriculaVehiculo:
                 type: string
                 description: matricula del vehiculo
-              matriculaRemolque:
-                type: string
-                description: matricula del remolque asociado a la matricula
               codigoAgenciaTransporte:
                 type: string
                 description: Código de la empresa intermediaria comercial del viaje
