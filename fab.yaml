@@ -2130,6 +2130,9 @@ components:
               codigoExternoCaracter:
                 type: string
                 description: caracter de la fórmula  en el ERP  
+              descripcion:
+                type: string
+                description: descripcion de la fórmula  en el ERP  
               ingredientes:
                 type: array
                 items:
