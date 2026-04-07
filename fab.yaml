@@ -1676,6 +1676,12 @@ components:
                   <br> `B` - Baja
               codigoExterno:
                 type: string
+              esExplotacion:
+                type: string
+                description: >
+                  Puede tener los siguienes valores:
+                  <br> `0` - No
+                  <br> `1` - Sí
               nif:
                 type: string
               nombre:
