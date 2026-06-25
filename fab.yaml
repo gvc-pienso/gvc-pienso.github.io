@@ -1191,12 +1191,9 @@ components:
               codigoExterno:
                 type: string
                 description: Código externo del contrato de compra
-              idProveedor:
-                type: string
-                description: Identificador de la cuenta del proveedor
               proveedor:
                 type: string
-                description: descricpión del proveedor
+                description: Identificador de la cuenta del proveedor
               fechaInicio:
                 type: string
                 format: date-time
@@ -1210,7 +1207,7 @@ components:
               producto:
                 type: string
                 description: Código del artículo
-              cantidadContrato:
+              cantidad:
                 type: number
                 format: double
                 description: Cantidad del contrato
