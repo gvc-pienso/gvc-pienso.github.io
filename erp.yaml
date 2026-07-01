@@ -157,6 +157,7 @@ paths:
                     matriculaVehiculo: "8888-YYY"
                     operadorTransporte: "OP-TRAN-07"
                     agenciaTransporte: "AG-LOG-21"
+                    certificadoDesinfeccion: "CDES-984544"
                     pesoEntrada: 12000.0
                     unidadPesoEntrada: "Kg"
                     fechaPesoEntrada: "2025-07-10T06:10+02:00"
@@ -626,6 +627,9 @@ components:
                     <br> `T` - Expedición en tránsito (Pendiente de la confirmación del camionero de la entrega)
                     <br> `C` - Expedición cerrada
                     <br> `R` - Expedición rechazar
+              certificadoDesinfeccion:
+                type: string
+                description: Identificador del certificado de desinfección del vehículo
               lineas:
                 type: array
                 items:
