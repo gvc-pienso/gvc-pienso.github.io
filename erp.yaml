@@ -291,7 +291,7 @@ paths:
                 fabricaciones:
                   - fechaProduccion: "2025-07-09T10:15+02:00"
                     identificadorProduccion: "FAB-001"
-                    versionFormula: "20777"
+                    versionFormula: "9600060:0726F3"
                     movimientos:
                       consumidos:
                         - codigoProducto: "MAT-001"
@@ -790,7 +790,7 @@ components:
                 description: Identificador interno del sistema de fábrica de la producción. Sirve para vincular consumos y produccciones
               versionFormula:
                 type: string
-                description: Versión de la fórmula utilizada en la fabricación
+                description: Identificador de la formula Versión de la fórmula utilizada en la fabricación (codArticulo:versionFormula)
               movimientos:
                 type: object
                 properties:
