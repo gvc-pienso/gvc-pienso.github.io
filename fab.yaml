@@ -2038,13 +2038,13 @@ components:
               vehiculoRecepciones:
                 type: string
                 description: >
-                  Puede tener los siguienes valores:
+                  Si es usado en recepciones. Puede tener los siguienes valores:
                   <br> `1` - Sí
                   <br> `0` - No
               vehiculoExpediciones:
                 type: string
                 description: >
-                  Puede tener los siguienes valores:
+                  Si es usado en expediciones. Puede tener los siguienes valores:
                   <br> `1` - Sí
                   <br> `0` - No
               codigoConductor:
