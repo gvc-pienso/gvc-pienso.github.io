@@ -129,7 +129,7 @@ paths:
                   error:
                     type: string
                     example: "Error interno del servidor"   
-  /expediciones:
+  /setExpeditions:
     post:
       tags:
         - Expediciones
