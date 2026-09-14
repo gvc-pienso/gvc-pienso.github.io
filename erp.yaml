@@ -17,7 +17,7 @@ tags:
   - name: Producciones
     description: Servicios de Producciones
 paths:
-  /recepciones:
+  /setReceptions:
     post:
       tags:
         - Recepciones
@@ -211,7 +211,7 @@ paths:
                   error:
                     type: string
                     example: "Error interno del servidor"
-  /regularizaciones:
+  /setRegularizations:
     post:
       tags:
         - Regularizaciones
@@ -272,7 +272,7 @@ paths:
                   error:
                     type: string
                     example: "Error interno del servidor"
-  /producciones:
+  /setProductions:
     post:
       tags:
         - Producciones
