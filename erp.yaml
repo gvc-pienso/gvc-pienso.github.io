@@ -6,7 +6,7 @@ info:
    almacenada en el ERP.
   version: 1.0.0
 servers:
-  - url: https://server.erp.com
+  - url: /api/services/MPIFactoryService/MPIFactoryService/
 tags:
   - name: Recepciones
     description: Servicios de recepciones de materia prima
