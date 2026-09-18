@@ -1288,6 +1288,11 @@ components:
               codigoExterno:
                 type: string
                 description: identificador de la recepción en el ERP (referencia transportista. Av-xxx)
+              fechaCreacion:
+                type: string
+                format: date-time
+                description: Fecha de recepcion planificada
+                example: "2026-09-17T13:34:31"
               codigoMatriculaVehiculo:
                 type: string
                 description: identificador del vehículo en el ERP
