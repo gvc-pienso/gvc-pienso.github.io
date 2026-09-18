@@ -1288,7 +1288,7 @@ components:
               codigoExterno:
                 type: string
                 description: identificador de la recepción en el ERP (referencia transportista. Av-xxx)
-              fechaCreacion:
+              fechaRecepcion:
                 type: string
                 format: date-time
                 description: Fecha de recepcion planificada
