@@ -1278,6 +1278,7 @@ components:
               - codigoExterno
               - fechaEntrada
               - lineas
+              - fechaRecepcion
             properties:
               accion:
                 type: string
