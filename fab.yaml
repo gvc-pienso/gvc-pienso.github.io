@@ -1439,6 +1439,9 @@ components:
                 items:
                   type: object
                   properties:
+                    identificador:
+                      type: string
+                      description: Identificador de la línea
                     producto:
                       type: string
                       description: Identificador del producto
@@ -1600,6 +1603,9 @@ components:
                       items:
                         type: object
                         properties:
+                          identificador:
+                            type: string
+                            description: Identificador de la línea
                           producto:
                             type: string
                             description: Identificador del producto
