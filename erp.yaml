@@ -170,6 +170,15 @@ paths:
                         pedidoLinea: "1"
                         fechaEntrega: "2025-07-10T12:00+02:00"
                         fechaRealizacion: "2025-07-10T06:30+02:00"
+                        compartimientos:
+                          - id: 1
+                            cantidad: 20.0
+                            unidad: "kg"
+                            multiproducto: 0
+                          - id: 2
+                            cantidad: 30.0
+                            unidad: "kg"
+                            multiproducto: 1
                         cantidades:
                           - id: 101
                             codigoLote: "L-PROD-0001"
@@ -684,7 +693,32 @@ components:
                             description: Cantidad del lote
                           unidad:
                             description: Unidad de la cantidad 
-                            type: string  
+                            type: string                             
+                    compartimientos:
+                      type: array
+                      items:
+                        type: object
+                        required:
+                          - id
+                          - cantidad
+                          - unidad
+                        properties:
+                          id:
+                            type: integer
+                            description: Identificador del compartimiento
+                          multiproducto:                 
+                            type: string
+                            description: >
+                              Puede tener los siguienes valores:
+                              <br> `0` - No
+                              <br> `1` - Sí
+                          cantidad:
+                            type: number
+                            format: double
+                            description: Cantidad del compartimiento
+                          unidad:
+                            description: Unidad de la cantidad 
+                            type: string
     EnvelopeRegularizaciones:
       type: object
       required: [recepciones]
