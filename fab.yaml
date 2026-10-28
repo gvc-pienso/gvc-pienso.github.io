@@ -1637,7 +1637,7 @@ components:
                               especieDestino:
                                 type: string
                                 description: valor de la especie en la receta
-                              afecciónTratar:
+                              afeccionTratar:
                                 type: string
                                 description: valor de la afección a tratar en la receta
                               duracionTratamiento:
