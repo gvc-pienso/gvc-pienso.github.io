@@ -1452,39 +1452,9 @@ components:
                     unidad:
                       type: string
                       description: Unidad de la cantidad planificada
-                    receta:
-                      type: object
-                      properties:
-                        recetaOficial:
+                    recetaOficial:
                           type: string
                           description: Codigo receta oficial
-                        texto1:
-                          type: string
-                          description: texto para pienso medicamentoso
-                        texto2:
-                          type: string
-                          description: texto para premezcal y registro
-                        premezcla:
-                          type: string
-                          description: valor de premezcla de la receta
-                        residuoMedicado:
-                          type: string
-                          description: valor del residuo medicado
-                        especieDestino:
-                          type: string
-                          description: valor de la especie en la receta
-                        afecciónTratar:
-                          type: string
-                          description: valor de la afección a tratar en la receta
-                        duracionTratamiento:
-                          type: string
-                          description: valor de la duración del tratamiento en la receta
-                        timepoEspera:
-                          type: string
-                          descripction: valor de tiempo de espera de la receta
-                        fechaCaducidad:
-                          type: string
-                          descripction: valor de la fecha de caducidad del pienso (fecha del albarán + 3 meses)                          
                     presentacion:
                       type: string
                     loteExplotacion:
@@ -1646,9 +1616,39 @@ components:
                           unidad:
                             type: string
                             description: Unidad de la cantidad planificada
-                          recetaOficial:
-                            type: string
-                            description: Codigo receta oficial
+                          receta:
+                            type: object
+                            properties:
+                              recetaOficial:
+                                type: string
+                                description: Codigo receta oficial
+                              texto1:
+                                type: string
+                                description: texto para pienso medicamentoso
+                              texto2:
+                                type: string
+                                description: texto para premezcal y registro
+                              premezcla:
+                                type: string
+                                description: valor de premezcla de la receta
+                              residuoMedicado:
+                                type: string
+                                description: valor del residuo medicado
+                              especieDestino:
+                                type: string
+                                description: valor de la especie en la receta
+                              afecciónTratar:
+                                type: string
+                                description: valor de la afección a tratar en la receta
+                              duracionTratamiento:
+                                type: string
+                                description: valor de la duración del tratamiento en la receta
+                              timepoEspera:
+                                type: string
+                                descripction: valor de tiempo de espera de la receta
+                              fechaCaducidad:
+                                type: string
+                                descripction: valor de la fecha de caducidad del pienso (fecha del albarán + 3 meses)                          
                           presentacion:
                             type: string
                           loteExplotacion:
